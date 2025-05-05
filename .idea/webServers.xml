@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e371f0ff-639f-4516-abb2-ae2a03abb00c" name="Dreamtails" url="https://dreamtails.kinsta.cloud/">
+        <fileTransfer rootFolder="/www/dreamtails_583/public/wp-content/themes/dreamtails" accessType="SFTP" host="35.224.70.159" port="59121" sshConfigId="0bdf9c85-3511-439d-ad12-21b906e4c9d8" sshConfig="Dreamtails Kinsta">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

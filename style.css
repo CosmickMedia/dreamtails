@@ -1,0 +1,789 @@
+/*
+Theme Name: Dream Tails
+Theme URI: https://cosmickmedia.com/
+Author: Cosmick Media
+Author URI: https://cosmickmedia.com/
+Description: Custom theme for Dream Tails Boutique integrating Bootstrap 5, Font Awesome 6, and WooCommerce support.
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: custom-background, custom-logo, custom-menu, featured-images, theme-options, translation-ready, block-styles, responsive-layout, two-columns, left-sidebar, right-sidebar, woocommerce
+Text Domain: dreamtails
+*/
+
+/* --- Variables --- */
+:root {
+    --color-primary-light-blue-grey: #BCC9C5; /* Primary 1 - Header/Footer BG */
+    --color-primary-light-yellow: #F1E6B2; /* Primary 2 */
+    --color-primary-light-peach: #EECCAA; /* Primary 3 */
+    --color-primary-dark-teal: #3D5155; /* Primary 4 - Headings, Buttons */
+    --color-primary-dark-grey: #646862; /* Primary 5 - Body Text */
+
+    --color-secondary-teal: #93BDB4; /* Secondary 1 - Links, Icons */
+    --color-secondary-light-beige: #DBC8B6; /* Secondary 2 */
+    --color-secondary-light-pink: #F7BCAC; /* Secondary 3 - Accent Button BG */
+    --color-secondary-dark-blue: #2E334E; /* Secondary 4 - Footer Titles */
+    --color-secondary-dark-maroon: #503B3D; /* Secondary 5 */
+
+    --color-text: var(--color-primary-dark-grey);
+    --color-heading: var(--color-primary-dark-teal);
+    --color-background: #FFFFFF;
+    --color-light-background: #FAFAFA; /* For alternating sections */
+    --color-header-bg: var(--color-primary-light-blue-grey);
+    --color-footer-bg: var(--color-primary-light-blue-grey);
+    --color-button: var(--color-primary-dark-teal); /* Default button bg */
+    --color-button-text: #FFFFFF;
+    --color-link: var(--color-secondary-teal);
+    --color-link-hover: var(--color-primary-dark-teal);
+
+    /* Font Families (Examples - Replace with actual choices if available) */
+    --font-primary: 'Lato', sans-serif; /* Body text */
+    --font-secondary: 'Playfair Display', serif; /* Headings */
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px; /* Base font size */
+    line-height: 1.6; /* Base line height */
+}
+
+/* Apply secondary font to headings */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-secondary);
+    color: var(--color-heading);
+    margin-top: 0;
+}
+
+/* Link styling */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--color-link-hover);
+}
+
+/* Ensure Bootstrap buttons use theme colors if desired */
+.btn-primary {
+    --bs-btn-color: var(--color-button-text);
+    --bs-btn-bg: var(--color-button);
+    --bs-btn-border-color: var(--color-button);
+    --bs-btn-hover-color: var(--color-button-text);
+    --bs-btn-hover-bg: var(--color-link-hover);
+    --bs-btn-hover-border-color: var(--color-link-hover);
+    --bs-btn-focus-shadow-rgb: TBD;
+    --bs-btn-active-color: var(--color-button-text);
+    --bs-btn-active-bg: var(--color-link-hover);
+    --bs-btn-active-border-color: var(--color-link-hover);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--color-button-text);
+    --bs-btn-disabled-bg: var(--color-button);
+    --bs-btn-disabled-border-color: var(--color-button);
+    opacity: 0.8;
+}
+
+
+/* --- Header --- */
+
+/* Top Bar Styles */
+.top-header-bar {
+    /* Background color is set inline via variable */
+    /* Padding handled by Bootstrap class py-3 */
+}
+
+/* Control Logo Size using the wrapper div */
+.top-bar-logo img { /* Target any img inside the wrapper */
+    max-height: 90px; /* << ADJUST THIS VALUE AS NEEDED >> */
+    width: auto;      /* Maintain aspect ratio */
+    display: block;   /* Ensure it behaves as a block element */
+}
+
+/* Style Top Right "Book Appointment" Button */
+.btn-book-appointment {
+    background-color: var(--color-primary-dark-teal) !important; /* #3D5155 */
+    color: white !important;
+    border-radius: 15px !important; /* Increased rounding */
+    border: none;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem !important; /* Adjust padding for btn-lg */
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    line-height: 1.5; /* Ensure text vertical alignment */
+    white-space: nowrap; /* Prevent button text wrapping */
+}
+.btn-book-appointment:hover {
+    background-color: var(--color-primary-dark-grey) !important; /* Example hover - Dark Grey */
+    color: white !important;
+    opacity: 0.9;
+}
+
+
+/* Main Navigation Bar Styles */
+.main-navbar {
+    /* Background is set inline bg-white */
+    border-bottom: 1px solid #eee;
+}
+
+/* --- FORCE HAMBURGER VISIBLE --- */
+.main-navbar .navbar-toggler {
+    display: inline-flex !important; /* Override Bootstrap's hiding. Use inline-flex for centering icon */
+    align-items: center;
+    justify-content: center;
+    border-color: rgba(61, 81, 85, 0.3); /* Dark teal border */
+    color: rgba(61, 81, 85, 0.7); /* Icon color */
+    margin-right: 1rem; /* Add some space between hamburger and menu */
+}
+.main-navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(61, 81, 85, 0.25); /* Add focus ring */
+}
+
+.main-navbar .navbar-toggler-icon {
+    /* Use Bootstrap's default SVG icon or customize */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(61, 81, 85, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3e");
+}
+/* --- End Force Hamburger --- */
+
+
+/* Style Navbar links in the second bar (Centering handled by parent div) */
+.main-navbar .navbar-nav .nav-link {
+    color: var(--color-primary-dark-teal);
+    font-weight: bold;
+    padding: 0.75rem 1rem; /* Adjust padding */
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.main-navbar .navbar-nav .nav-link:hover,
+.main-navbar .navbar-nav .nav-item.active > .nav-link, /* Check if Bootstrap still uses .active */
+.main-navbar .navbar-nav .nav-item.current-menu-item > .nav-link { /* WP active class */
+    color: var(--color-link-hover);
+}
+
+
+/* --- Main Content --- */
+.site-content {
+    /* Add padding if needed, e.g., padding-top: 2rem; padding-bottom: 2rem; */
+}
+.site-main {
+    flex-grow: 1; /* Ensures footer sticks to bottom */
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-primary-dark-teal); /* Base text color for footer */
+    font-size: 0.95rem; /* Slightly larger footer text */
+    padding-top: 3rem; /* Use Bootstrap pt-5 class on element instead? */
+    padding-bottom: 2rem; /* Use Bootstrap pb-4 class on element instead? */
+}
+
+.site-footer a {
+    color: var(--color-primary-dark-teal);
+    text-decoration: underline; /* Underline footer links */
+    transition: color 0.3s ease;
+}
+.site-footer a:hover {
+    color: #fff; /* White on hover for contrast */
+    text-decoration: none;
+}
+
+/* Style footer widget titles */
+.site-footer .widget-title {
+    color: var(--color-secondary-dark-blue);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-family: var(--font-secondary);
+}
+
+/* Style footer menus */
+.footer-menu {
+    list-style: none;
+    padding-left: 0; /* Remove default ul padding */
+}
+.footer-menu li {
+    margin-bottom: 0.5rem;
+}
+
+/* Align icons in footer info sections */
+.footer-info p i,
+.footer-hours p i {
+    width: 18px; /* Ensure consistent icon alignment */
+    text-align: center;
+    margin-right: 0.5rem; /* Space after icon */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem; /* Spacing handled by Bootstrap classes */
+    margin-top: 1rem;
+}
+.footer-bottom p {
+    margin-bottom: 0.25rem;
+}
+.footer-bottom a { /* Ensure copyright link inherits footer link style */
+    color: var(--color-primary-dark-teal);
+    text-decoration: underline;
+}
+.footer-bottom a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* --- Front Page Specific Styles --- */
+.front-page-hero {
+    /* Add background image */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('<?php echo get_template_directory_uri(); ?>/assets/images/hero-placeholder.jpg'); /* Use PHP in style tag or add via inline style */
+    min-height: 60vh;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+}
+
+/* Style the white overlay box */
+.hero-content {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    /* Padding handled by Bootstrap utilities p-4 p-md-5 */
+}
+.hero-content h1 {
+    color: var(--color-primary-dark-teal);
+}
+/* Style the button within the hero */
+.hero-content .btn {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+}
+.hero-content .btn:hover {
+    background-color: var(--color-link-hover);
+}
+
+/* Icon Section styling */
+#dreaming-of-you {
+    /* Padding handled by py-5 utility */
+}
+#dreaming-of-you .icon-item i {
+    color: var(--color-secondary-teal);
+    font-size: 3rem; /* Adjust icon size */
+}
+#dreaming-of-you .icon-item p {
+    color: var(--color-text); /* Ensure text color is set */
+}
+
+/* Featured Pets Section */
+#featured-pets {
+    background-color: var(--color-light-background);
+    /* Padding handled by py-5 utility */
+}
+#featured-pets .section-title {
+    /* Margin handled by mb-5 utility */
+}
+#featured-pets .card {
+    border: none; /* Remove default card border if desired */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#featured-pets .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important; /* Add hover shadow */
+}
+#featured-pets .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+#featured-pets .card-title {
+    color: var(--color-heading);
+    font-family: var(--font-secondary);
+    font-weight: bold;
+}
+/* Button in card */
+#featured-pets .card .btn {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    font-size: 0.9rem;
+}
+#featured-pets .card .btn:hover {
+    background-color: var(--color-link-hover);
+}
+/* Button for 'View All Pets' */
+#featured-pets .btn-lg {
+    background-color: var(--color-secondary-teal);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+#featured-pets .btn-lg:hover {
+    background-color: var(--color-link-hover);
+}
+
+
+/* Testimonial Section */
+#happy-tails {
+    /* Padding handled by py-5 utility */
+}
+#happy-tails .section-title {
+    /* Margin handled by mb-5 utility */
+}
+#happy-tails .fa-quote-left {
+    color: var(--color-secondary-light-pink);
+}
+#happy-tails .blockquote {
+    /* Bootstrap handles basic blockquote styling */
+}
+#happy-tails .blockquote-footer {
+    color: var(--color-heading) !important; /* Override Bootstrap default grey */
+    font-weight: bold;
+    font-size: 1rem; /* Adjust size */
+}
+
+/* Concierge Care Section */
+#concierge-care {
+    background-color: var(--color-light-background);
+    /* Padding handled by py-5 utility */
+}
+#concierge-care .section-title {
+    /* Margin handled by mb-4 utility */
+}
+#concierge-care p.lead {
+    font-size: 1.2rem; /* Make lead paragraph slightly larger */
+    margin-bottom: 1rem;
+}
+/* Button in Concierge section */
+#concierge-care .btn {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    transition: background-color 0.3s ease;
+}
+#concierge-care .btn:hover {
+    background-color: var(--color-link-hover);
+}
+
+
+/* --- WP Content / Blog / Page Styles --- */
+.wp-content { /* Example class for general WP editor content areas */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Ensure images within WP editor content are responsive */
+.entry-content img,
+.comment-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px; /* Optional: slight rounding on content images */
+    margin-bottom: 1rem; /* Add space below images */
+}
+
+/* Style entry titles */
+.entry-title {
+    margin-bottom: 1.5rem;
+}
+
+/* Style post/page meta if added (e.g., date, author) */
+.entry-meta {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+.entry-footer .edit-link a {
+    font-size: 0.85rem;
+}
+
+
+/* --- Comments --- */
+.comments-area {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+.comments-title,
+.comment-reply-title {
+    font-family: var(--font-secondary);
+    color: var(--color-heading);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem; /* Adjust title size */
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+.comment-list li.comment { /* Target comment li specifically */
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dotted #eee;
+}
+.comment-list li.comment:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.comment-list .children { /* Threaded comments */
+    list-style: none;
+    padding-left: 2rem; /* Indent replies */
+    margin-top: 1.5rem;
+}
+.comment-body {
+    /* Optional: Add background or border if desired */
+}
+.comment-meta {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+.comment-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.comment-author .avatar {
+    margin-right: 0.75rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+.comment-author .fn { /* Author name */
+    font-weight: bold;
+    color: var(--color-heading);
+    margin-right: 0.5rem; /* Space after name */
+}
+.comment-author .says { /* Hide default "says" */
+    display: none;
+}
+.comment-metadata a { /* Comment date/time link */
+    font-size: 0.85rem;
+    color: #aaa;
+    text-decoration: none;
+}
+.comment-metadata a:hover {
+    text-decoration: underline;
+}
+.comment-content {
+    clear: both; /* Ensure content flows below floated avatar */
+    padding-top: 0.5rem;
+}
+.comment-content p:last-child {
+    margin-bottom: 0; /* Remove margin from last paragraph */
+}
+
+.reply {
+    margin-top: 0.5rem;
+    text-align: right;
+    font-size: 0.9rem;
+}
+.comment-reply-link { /* Target WP reply link class */
+    color: var(--color-secondary-teal);
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid var(--color-secondary-teal);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.comment-reply-link:hover {
+    background-color: var(--color-secondary-teal);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Comment Form */
+#respond {
+    margin-top: 2rem;
+    /* Optional: Add border/background */
+    /* border-top: 1px solid #eee; */
+    /* padding-top: 1.5rem; */
+}
+/* Use Bootstrap form styling */
+#respond .form-control {
+    margin-bottom: 1rem; /* Add space below form fields */
+}
+#respond label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+#respond .form-submit input[type="submit"].submit { /* Target WP submit button class */
+    /* Style submit button using theme colors */
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 5px; /* Match general button style */
+}
+#respond .form-submit input[type="submit"].submit:hover {
+    background-color: var(--color-link-hover);
+}
+#respond .comment-notes,
+#respond .logged-in-as {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+#respond .required { /* Style required field indicator */
+    color: red;
+    margin-left: 0.25rem;
+}
+
+
+/* --- WooCommerce Overrides & Styling --- */
+
+/* General Layout */
+.woocommerce .col2-set .col-1,
+.woocommerce .col2-set .col-2,
+.woocommerce-page .col2-set .col-1,
+.woocommerce-page .col2-set .col-2 {
+    /* Ensure Bootstrap grid takes precedence if needed, or adjust WC default */
+    /* max-width: 100%; */
+}
+
+/* Product Loop Styling */
+.woocommerce ul.products {
+    /* Use Bootstrap grid for product loops */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Spacing between products */
+    margin-left: 0; /* Override default WC list indent */
+    margin-right: 0;
+    padding: 0;
+    list-style: none;
+}
+.woocommerce ul.products li.product {
+    margin-bottom: 0; /* Reset default WC margin */
+    text-align: center;
+    list-style: none; /* Ensure no list bullet */
+}
+.woocommerce ul.products li.product a img {
+    margin-bottom: 1rem;
+    box-shadow: none; /* Remove WC default shadow */
+    border: 1px solid #eee;
+    border-radius: 5px;
+    display: block; /* Ensure image is block */
+    margin-left: auto;
+    margin-right: auto;
+}
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    color: var(--color-heading); /* Match product titles to theme */
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem; /* Add padding if title wraps */
+}
+.woocommerce ul.products li.product .price {
+    color: var(--color-primary-dark-teal); /* Style price color */
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: block; /* Ensure price is on its own line */
+    margin-bottom: 1rem;
+}
+.woocommerce ul.products li.product .button,
+.woocommerce ul.products li.product .added_to_cart { /* Style Add-to-Cart & View Cart buttons */
+    background-color: var(--color-secondary-teal);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 0; /* Reset WC default margin */
+    white-space: normal; /* Allow button text to wrap if needed */
+}
+.woocommerce ul.products li.product .button:hover,
+.woocommerce ul.products li.product .added_to_cart:hover {
+    background-color: var(--color-link-hover);
+    color: white;
+}
+
+/* Single Product Page */
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+    color: var(--color-primary-dark-teal);
+    font-size: 1.5rem; /* Larger price on single product */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.woocommerce div.product .woocommerce-product-gallery {
+    /* Adjust gallery styles if needed */
+}
+.woocommerce div.product form.cart .button {
+    /* Style single product Add-to-Cart */
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 5px; /* Match other buttons */
+    border: none;
+}
+.woocommerce div.product form.cart .button:hover {
+    background-color: var(--color-link-hover);
+}
+.woocommerce div.product .quantity .qty { /* Style quantity input */
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+/* Tabs */
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    margin-left: 0; /* Reset WC indent */
+    padding-left: 0;
+    list-style: none;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    list-style: none; /* Ensure no bullets */
+    border-radius: 5px 5px 0 0; /* Round top corners */
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    color: var(--color-link);
+    font-weight: bold;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+    color: var(--color-heading);
+}
+.woocommerce div.product .woocommerce-tabs .panel {
+    border-radius: 0 5px 5px 5px; /* Round other corners */
+    padding: 1.5rem;
+}
+
+/* Notices */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+    border-top-color: var(--color-secondary-teal) !important; /* Theme color for notices */
+    background-color: #f0f7f6 !important; /* Lighter theme background */
+    padding: 1em 2em 1em 3.5em !important; /* Adjust padding */
+    border-radius: 5px;
+    color: var(--color-primary-dark-grey);
+}
+.woocommerce-error {
+    border-top-color: var(--color-secondary-dark-maroon) !important; /* Error color */
+    background-color: #f9f0f1 !important;
+}
+.woocommerce-message::before,
+.woocommerce-info::before,
+.woocommerce-error::before {
+    color: var(--color-secondary-teal) !important; /* Match icon color */
+    top: 1.1em !important; /* Adjust icon position */
+    left: 1.2em !important;
+}
+.woocommerce-error::before {
+    color: var(--color-secondary-dark-maroon) !important;
+}
+
+/* Cart & Checkout Buttons */
+.woocommerce .wc-proceed-to-checkout a.checkout-button,
+.woocommerce button.button.alt, /* Covers Update Cart, Apply Coupon etc. */
+.woocommerce #payment #place_order {
+    background-color: var(--color-button) !important;
+    color: var(--color-button-text) !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none !important;
+    border-radius: 5px !important; /* Ensure consistent rounding */
+    line-height: normal; /* Reset line height */
+}
+.woocommerce .wc-proceed-to-checkout a.checkout-button:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce #payment #place_order:hover {
+    background-color: var(--color-link-hover) !important;
+    color: var(--color-button-text) !important;
+}
+
+
+/* --- Utilities --- */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+/* --- Media Queries --- */
+/* Primarily rely on Bootstrap classes, add overrides here if needed */
+@media (max-width: 991.98px) { /* Below Bootstrap Large breakpoint */
+    /* Collapsed menu styling */
+    .main-navbar .navbar-collapse {
+        /* Centering is handled by justify-content-center */
+        margin-top: 0.5rem; /* Add space below toggler */
+    }
+    /* Optional: Add background/border to collapsed menu */
+    /* .main-navbar .navbar-collapse {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 5px;
+        border: 1px solid #eee;
+    } */
+    .main-navbar .navbar-nav {
+        text-align: center; /* Center text within links in collapsed view */
+    }
+    .main-navbar .navbar-nav .nav-link {
+        padding: 0.5rem 0;
+    }
+    .top-bar-logo img {
+        max-height: 60px; /* << ADJUST MOBILE LOGO SIZE >> */
+    }
+    .btn-book-appointment {
+        padding: 0.5rem 1rem !important; /* Adjust button padding */
+        font-size: 0.9rem; /* Adjust button font size */
+    }
+}
+
+@media (max-width: 767.98px) { /* Below Bootstrap Medium breakpoint */
+    /* Example: Adjust font sizes for smaller screens */
+    h1, .h1 { font-size: 1.8rem; }
+    h2, .h2 { font-size: 1.6rem; }
+    .hero-content h1 { font-size: 2rem; }
+
+    .footer-widgets-area .col-md-6 { /* Ensure footer columns stack nicely */
+        text-align: center; /* Center stacked footer columns */
+        margin-bottom: 1.5rem;
+    }
+    .footer-widgets-area .col-md-6:last-child {
+        margin-bottom: 0;
+    }
+    .footer-bottom {
+        text-align: center;
+    }
+
+    .comment-list .children {
+        padding-left: 1rem; /* Reduce indent on mobile */
+    }
+}
+
+@media (max-width: 575.98px) { /* Below Bootstrap Small breakpoint */
+    /* Add specific styles for very small screens */
+    .btn-book-appointment {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem !important;
+    }
+    .top-bar-logo img {
+        max-height: 50px; /* << ADJUST X-SMALL LOGO SIZE >> */
+    }
+    /* Reduce padding on top bar for smallest screens */
+    .top-header-bar {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+}
