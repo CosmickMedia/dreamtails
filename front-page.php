@@ -32,15 +32,15 @@ get_header();
         <div class="container">
             <div class="row text-center gy-4">
                 <div class="col-md-4 icon-item">
-                    <i class="fas fa-dog fa-3x mb-3" style="color: var(--color-secondary-teal);"></i>
+                    <i class="fas fa-dog fa-3x mb-3"></i>
                     <p class="fw-bold"><?php esc_html_e( 'puppies dreaming of you', 'dreamtails' ); ?></p>
                 </div>
                 <div class="col-md-4 icon-item">
-                    <i class="fas fa-cat fa-3x mb-3" style="color: var(--color-secondary-teal);"></i>
+                    <i class="fas fa-cat fa-3x mb-3"></i>
                     <p class="fw-bold"><?php esc_html_e( 'kittens dreaming of you', 'dreamtails' ); ?></p>
                 </div>
                 <div class="col-md-4 icon-item">
-                    <i class="fas fa-concierge-bell fa-3x mb-3" style="color: var(--color-secondary-teal);"></i>
+                    <i class="fas fa-concierge-bell fa-3x mb-3"></i>
                     <p class="fw-bold"><?php esc_html_e( 'concierge service', 'dreamtails' ); ?></p>
                 </div>
             </div>
