@@ -236,4 +236,108 @@ add_filter( 'nav_menu_css_class', 'dreamtails_add_menu_li_class', 1, 3 );
 // If using a Walker Class for Bootstrap Nav:
 // require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php'; // Download and place NavWalker class if needed
 
+/**
+ * Register the "reviews" custom post type.
+ */
+function dreamtails_register_reviews_cpt() {
+    $labels = array(
+        'name'               => _x( 'Reviews', 'post type general name', 'dreamtails' ),
+        'singular_name'      => _x( 'Review', 'post type singular name', 'dreamtails' ),
+        'menu_name'          => _x( 'Reviews', 'admin menu', 'dreamtails' ),
+        'name_admin_bar'     => _x( 'Review', 'add new on admin bar', 'dreamtails' ),
+        'add_new'            => _x( 'Add New', 'review', 'dreamtails' ),
+        'add_new_item'       => __( 'Add New Review', 'dreamtails' ),
+        'new_item'           => __( 'New Review', 'dreamtails' ),
+        'edit_item'          => __( 'Edit Review', 'dreamtails' ),
+        'view_item'          => __( 'View Review', 'dreamtails' ),
+        'all_items'          => __( 'All Reviews', 'dreamtails' ),
+        'search_items'       => __( 'Search Reviews', 'dreamtails' ),
+        'parent_item_colon'  => __( 'Parent Reviews:', 'dreamtails' ),
+        'not_found'          => __( 'No reviews found.', 'dreamtails' ),
+        'not_found_in_trash' => __( 'No reviews found in Trash.', 'dreamtails' )
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'review' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'menu_icon'          => 'dashicons-star-filled',
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'reviews', $args );
+}
+add_action( 'init', 'dreamtails_register_reviews_cpt' );
+
+/**
+ * Add meta box for star rating.
+ */
+function dreamtails_reviews_add_meta_box() {
+    add_meta_box(
+        'dreamtails_review_rating',
+        __( 'Star Rating', 'dreamtails' ),
+        'dreamtails_reviews_rating_meta_box_cb',
+        'reviews',
+        'side',
+        'default'
+    );
+}
+add_action( 'add_meta_boxes_reviews', 'dreamtails_reviews_add_meta_box' );
+
+/**
+ * Callback to display star rating field.
+ */
+function dreamtails_reviews_rating_meta_box_cb( $post ) {
+    $rating = get_post_meta( $post->ID, '_dreamtails_review_rating', true );
+    wp_nonce_field( 'dreamtails_save_review_rating', 'dreamtails_review_rating_nonce' );
+    echo '<select name="dreamtails_review_rating" id="dreamtails_review_rating" class="widefat">';
+    for ( $i = 1; $i <= 5; $i++ ) {
+        printf( '<option value="%1$d" %2$s>%1$d</option>', $i, selected( $rating, $i, false ) );
+    }
+    echo '</select>';
+}
+
+/**
+ * Save star rating.
+ */
+function dreamtails_reviews_save_meta( $post_id ) {
+    if ( ! isset( $_POST['dreamtails_review_rating_nonce'] ) || ! wp_verify_nonce( $_POST['dreamtails_review_rating_nonce'], 'dreamtails_save_review_rating' ) ) {
+        return;
+    }
+
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    if ( isset( $_POST['dreamtails_review_rating'] ) ) {
+        update_post_meta( $post_id, '_dreamtails_review_rating', intval( $_POST['dreamtails_review_rating'] ) );
+    }
+}
+add_action( 'save_post_reviews', 'dreamtails_reviews_save_meta' );
+
+/**
+ * Add rating column to admin list.
+ */
+function dreamtails_reviews_columns( $columns ) {
+    $columns['review_rating'] = __( 'Rating', 'dreamtails' );
+    return $columns;
+}
+add_filter( 'manage_reviews_posts_columns', 'dreamtails_reviews_columns' );
+
+function dreamtails_reviews_custom_column( $column, $post_id ) {
+    if ( 'review_rating' === $column ) {
+        $rating = intval( get_post_meta( $post_id, '_dreamtails_review_rating', true ) );
+        echo str_repeat( '★', $rating );
+    }
+}
+add_action( 'manage_reviews_posts_custom_column', 'dreamtails_reviews_custom_column', 10, 2 );
+
 ?>
