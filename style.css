@@ -410,6 +410,7 @@ a:hover {
 }
 #happy-tails .section-title {
     /* Margin handled by mb-5 utility */
+    font-size: 3.5rem;
 }
 #happy-tails .fa-quote-left {
     color: var(--color-secondary-light-pink);
