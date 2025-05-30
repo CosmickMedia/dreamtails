@@ -109,9 +109,9 @@ a:hover {
 
 /* Control Logo Size using the wrapper div */
 .top-bar-logo img { /* Target any img inside the wrapper */
-    max-height: 99px; /* Increased ~10% */
-    width: auto;      /* Maintain aspect ratio */
-    display: block;   /* Ensure it behaves as a block element */
+    max-height: 130px; /* Larger logo on desktop */
+    width: auto;       /* Maintain aspect ratio */
+    display: block;    /* Ensure it behaves as a block element */
 }
 
 /* Style Top Right "Book Appointment" Button */
@@ -306,14 +306,16 @@ a:hover {
 
 /* Icon Section styling */
 #dreaming-of-you {
-    /* Padding handled by py-5 utility */
+    padding-top: 6rem;   /* More negative space */
+    padding-bottom: 6rem;
 }
 #dreaming-of-you .icon-item i {
-    color: var(--color-secondary-teal);
-    font-size: 3rem; /* Adjust icon size */
+    color: var(--color-primary-dark-grey); /* Dark grey icons */
+    font-size: 5rem; /* Larger icons */
 }
 #dreaming-of-you .icon-item p {
     color: var(--color-text); /* Ensure text color is set */
+    font-family: 'Josefin Sans', sans-serif; /* Google font */
 }
 
 /* Featured Pets Section */
