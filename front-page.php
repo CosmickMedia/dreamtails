@@ -80,11 +80,36 @@ get_header();
     <section class="front-page-section py-5" id="happy-tails">
         <div class="container">
             <h2 class="section-title text-center mb-5"><?php esc_html_e( 'happy tails start here', 'dreamtails' ); ?></h2>
-            <div class="testimonial-content text-center mx-auto" style="max-width: 700px;">
-                <i class="fas fa-quote-left fa-2x mb-3" style="color: var(--color-secondary-light-pink);"></i>
-                <blockquote class="blockquote fs-5 fst-italic mb-3"><?php esc_html_e( 'We love our little Morkie, Lilly! The store was very professional, knowledgeable and courteous. They took the time to work with us and explain every detail.', 'dreamtails'); ?></blockquote>
-                <footer class="blockquote-footer fw-bold" style="color: var(--color-heading);"><?php esc_html_e( 'Jeremy D', 'dreamtails' ); ?></footer>
-            </div>
+            <?php
+            $review_query = new WP_Query( array(
+                'post_type'      => 'reviews',
+                'posts_per_page' => 3,
+            ) );
+
+            if ( $review_query->have_posts() ) :
+                echo '<div class="row justify-content-center gy-4">';
+                while ( $review_query->have_posts() ) :
+                    $review_query->the_post();
+                    $rating = intval( get_post_meta( get_the_ID(), '_dreamtails_review_rating', true ) );
+                    ?>
+                    <div class="col-md-4 text-center testimonial-content">
+                        <i class="fas fa-quote-left fa-2x mb-3" style="color: var(--color-secondary-light-pink);"></i>
+                        <blockquote class="blockquote fs-5 fst-italic mb-3"><?php the_content(); ?></blockquote>
+                        <div class="mb-2" style="color: var(--color-secondary-light-pink);">
+                            <?php
+                            for ( $i = 1; $i <= 5; $i++ ) {
+                                echo $i <= $rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                            }
+                            ?>
+                        </div>
+                        <footer class="blockquote-footer fw-bold" style="color: var(--color-heading);"><?php the_title(); ?></footer>
+                    </div>
+                    <?php
+                endwhile;
+                echo '</div>';
+                wp_reset_postdata();
+            endif;
+            ?>
         </div>
     </section>
 
