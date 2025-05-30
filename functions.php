@@ -168,16 +168,16 @@ function dreamtails_widgets_init() {
         )
     );
 
-    // WooCommerce Sidebar (Optional)
-    // register_sidebar( array(
-    //     'name'          => esc_html__( 'Shop Sidebar', 'dreamtails' ),
-    //     'id'            => 'shop-sidebar',
-    //     'description'   => esc_html__( 'Widgets for the WooCommerce shop pages.', 'dreamtails' ),
-    //     'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    //     'after_widget'  => '</div>',
-    //     'before_title'  => '<h4 class="widget-title">',
-    //     'after_title'   => '</h4>',
-    // ) );
+    // WooCommerce Sidebar
+    register_sidebar( array(
+        'name'          => esc_html__( 'Shop Sidebar', 'dreamtails' ),
+        'id'            => 'shop-sidebar',
+        'description'   => esc_html__( 'Widgets for WooCommerce product archives.', 'dreamtails' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
+    ) );
 }
 add_action( 'widgets_init', 'dreamtails_widgets_init' );
 
@@ -194,11 +194,13 @@ add_action('woocommerce_before_main_content', 'dreamtails_woocommerce_wrapper_st
 add_action('woocommerce_after_main_content', 'dreamtails_woocommerce_wrapper_end', 10);
 
 function dreamtails_woocommerce_wrapper_start() {
-    echo '<main id="primary" class="site-main py-5"><div class="container">'; // Added padding utility class
+    // Container and row for WooCommerce pages
+    echo '<main id="primary" class="site-main py-5"><div class="container"><div class="row">';
 }
 
 function dreamtails_woocommerce_wrapper_end() {
-    echo '</div></main>';
+    // Close row and container
+    echo '</div></div></main>';
 }
 
 /**
