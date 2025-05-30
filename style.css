@@ -295,11 +295,12 @@ a:hover {
 /* Style the white overlay box */
 .hero-content {
     background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 10px;
+    border-radius: 1.5rem; /* more rounded edges */
     /* Padding handled by Bootstrap utilities p-4 p-md-5 */
 }
 .hero-content h1 {
     color: var(--color-primary-dark-teal);
+    font-size: 4rem; /* slightly larger tagline */
 }
 /* Style the button within the hero */
 .hero-content .btn {
@@ -829,7 +830,7 @@ a:hover {
     /* Example: Adjust font sizes for smaller screens */
     h1, .h1 { font-size: 1.8rem; }
     h2, .h2 { font-size: 1.6rem; }
-    .hero-content h1 { font-size: 2rem; }
+    .hero-content h1 { font-size: 2.3rem; }
 
     .footer-widgets-area .col-md-6 { /* Ensure footer columns stack nicely */
         text-align: center; /* Center stacked footer columns */
