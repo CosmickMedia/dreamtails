@@ -50,28 +50,28 @@ get_header();
 <?php // --- Featured Pets Section --- ?>
     <section class="front-page-section py-5 bg-light" id="featured-pets">
         <div class="container">
-            <h2 class="section-title text-center mb-5"><?php esc_html_e( 'featured dream pets', 'dreamtails' ); ?></h2>
-            <div class="row g-4 justify-content-center"> <?php // Using row and gutters ?>
-                <?php
-                // --- Placeholder Content ---
-                // Replace with WP_Query for 'pet' CPT
-                for ($i = 1; $i <= 3; $i++) { ?>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm pet-card"> <?php // Bootstrap card component ?>
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pet-placeholder-' . $i . '.jpg'); ?>" class="card-img-top" alt="Featured Pet <?php echo $i; ?>" style="height: 250px; object-fit: cover;">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Pet Name <?php echo $i; ?></h5>
-                                <p class="card-text">Breed Name</p>
-                                <a href="#" class="btn btn-sm" style="background-color: var(--color-button); color: var(--color-button-text);"><i class="fas fa-paw me-1"></i> <?php esc_html_e('View Details', 'dreamtails'); ?></a>
+            <h2 class="section-title text-center mb-4"><?php esc_html_e( 'featured dream pets', 'dreamtails' ); ?></h2>
+            <div class="row featured-pets-row align-items-center">
+                <div class="col-12 col-md-9">
+                    <div class="featured-pets-images d-flex flex-wrap flex-md-nowrap justify-content-between">
+                        <?php
+                        // --- Placeholder Content ---
+                        // Replace with WP_Query for 'pet' CPT
+                        for ($i = 1; $i <= 3; $i++) { ?>
+                            <div class="featured-pet-image mb-3 mb-md-0 text-center">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pet-placeholder-' . $i . '.jpg'); ?>" alt="Featured Pet <?php echo $i; ?>" class="img-fluid">
                             </div>
-                        </div>
+                        <?php }
+                        // --- End Placeholder ---
+                        ?>
                     </div>
-                <?php }
-                // --- End Placeholder ---
-                ?>
-            </div>
-            <div class="text-center mt-5">
-                <a href="/view-pets/" class="btn btn-lg" style="background-color: var(--color-secondary-teal); color: white;"><i class="fas fa-search me-1"></i> <?php esc_html_e('View All Dream Pets', 'dreamtails'); ?></a>
+                </div>
+                <div class="col-12 col-md-3 text-md-start text-center mt-3 mt-md-0 d-flex align-items-center justify-content-center">
+                    <a href="/view-pets/" class="view-all-pets-link d-inline-flex align-items-center">
+                        <span class="me-2"><?php esc_html_e('View all Dream Pets', 'dreamtails'); ?></span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
