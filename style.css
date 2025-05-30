@@ -106,7 +106,7 @@ a:hover {
 
 /* Control Logo Size using the wrapper div */
 .top-bar-logo img { /* Target any img inside the wrapper */
-    max-height: 90px; /* << ADJUST THIS VALUE AS NEEDED >> */
+    max-height: 99px; /* Increased ~10% */
     width: auto;      /* Maintain aspect ratio */
     display: block;   /* Ensure it behaves as a block element */
 }
@@ -805,7 +805,7 @@ a:hover {
         padding: 0.5rem 0;
     }
     .top-bar-logo img {
-        max-height: 60px; /* << ADJUST MOBILE LOGO SIZE >> */
+        max-height: 66px; /* Increased ~10% */
     }
     .btn-book-appointment {
         padding: 0.5rem 1rem !important; /* Adjust button padding */
@@ -842,7 +842,7 @@ a:hover {
         padding: 0.4rem 0.8rem !important;
     }
     .top-bar-logo img {
-        max-height: 50px; /* << ADJUST X-SMALL LOGO SIZE >> */
+        max-height: 55px; /* Increased ~10% */
     }
     /* Reduce padding on top bar for smallest screens */
     .top-header-bar {
