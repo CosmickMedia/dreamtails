@@ -11,14 +11,18 @@ get_header();
     <main id="primary" class="site-main">
 
 <?php // --- Hero Section --- ?>
-    <section class="front-page-hero text-center d-flex align-items-center" style="min-height: 60vh; background-color: var(--color-secondary-light-pink); background-size: cover; background-position: center;">
-        <?php // Add background image via style.css or inline for testing ?>
+    <section class="front-page-hero">
         <div class="container">
-            <div class="hero-content bg-light bg-opacity-75 p-4 p-md-5 rounded d-inline-block">
-                <h1 class="display-4" style="color: var(--color-primary-dark-teal);"><?php esc_html_e( 'where pets find their people', 'dreamtails' ); ?></h1>
-                <a href="/book-appointment/" class="btn btn-lg mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
-                    <i class="fa-regular fa-calendar-check me-2"></i> <?php esc_html_e( 'Book an Appointment', 'dreamtails' ); ?>
-                </a>
+            <div class="row align-items-center">
+                <div class="col-md-6 d-none d-md-block p-0 hero-image"></div>
+                <div class="col-md-6">
+                    <div class="hero-content bg-light bg-opacity-75 p-4 p-md-5 rounded text-center">
+                        <h1 class="display-4" style="color: var(--color-primary-dark-teal);"><?php esc_html_e( 'where pets find their people', 'dreamtails' ); ?></h1>
+                        <a href="/book-appointment/" class="btn btn-lg mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
+                            <i class="fa-regular fa-calendar-check me-2"></i> <?php esc_html_e( 'Book an Appointment', 'dreamtails' ); ?>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

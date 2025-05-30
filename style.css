@@ -254,13 +254,28 @@ a:hover {
 
 /* --- Front Page Specific Styles --- */
 .front-page-hero {
-    /* Add background image */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('<?php echo get_template_directory_uri(); ?>/assets/images/hero-placeholder.jpg'); /* Use PHP in style tag or add via inline style */
+    background-color: var(--color-secondary-light-pink);
     min-height: 60vh;
-    background-size: cover;
-    background-position: center center;
     display: flex;
     align-items: center;
+}
+
+.hero-image {
+    background-image: url('assets/images/sleep.png');
+    background-size: cover;
+    background-position: center bottom;
+    min-height: 60vh;
+}
+
+@media (max-width: 767.98px) {
+    .front-page-hero {
+        background-image: url('assets/images/sleep.png');
+        background-size: cover;
+        background-position: center bottom;
+    }
+    .hero-image {
+        display: none;
+    }
 }
 
 /* Style the white overlay box */
