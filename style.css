@@ -256,12 +256,18 @@ a:hover {
 
 
 /* --- Front Page Specific Styles --- */
+.front-page-section {
+    padding-top: 8rem !important;  /* Increase negative space */
+    padding-bottom: 8rem !important;
+}
 .front-page-hero {
     background-color: var(--color-secondary-light-pink);
     min-height: 60vh;
     display: flex;
     align-items: center;
     overflow: visible; /* allow hero image to overlap */
+    padding-top: 8rem !important;   /* Increase negative space */
+    padding-bottom: 8rem !important;
 }
 
 .hero-image {
@@ -306,8 +312,8 @@ a:hover {
 
 /* Icon Section styling */
 #dreaming-of-you {
-    padding-top: 6rem;   /* More negative space */
-    padding-bottom: 6rem;
+    padding-top: 8rem;   /* Increase negative space */
+    padding-bottom: 8rem;
 }
 #dreaming-of-you .icon-item i {
     color: var(--color-primary-dark-grey); /* Dark grey icons */
