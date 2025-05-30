@@ -136,24 +136,32 @@ a:hover {
     border-bottom: 1px solid #eee;
 }
 
-/* --- FORCE HAMBURGER VISIBLE --- */
-.main-navbar .navbar-toggler {
-    display: inline-flex !important; /* Override Bootstrap's hiding. Use inline-flex for centering icon */
-    align-items: center;
-    justify-content: center;
-    border-color: rgba(61, 81, 85, 0.3); /* Dark teal border */
-    color: rgba(61, 81, 85, 0.7); /* Icon color */
-    margin-right: 1rem; /* Add some space between hamburger and menu */
+/* --- Mobile Navbar Toggle --- */
+@media (max-width: 991.98px) {
+    .main-navbar .navbar-toggler {
+        display: inline-flex; /* Show toggle on mobile */
+        align-items: center;
+        justify-content: center;
+        border-color: rgba(61, 81, 85, 0.3); /* Dark teal border */
+        color: rgba(61, 81, 85, 0.7); /* Icon color */
+        margin-right: 1rem; /* Space between hamburger and menu */
+    }
 }
 .main-navbar .navbar-toggler:focus {
-    box-shadow: 0 0 0 0.25rem rgba(61, 81, 85, 0.25); /* Add focus ring */
+    box-shadow: 0 0 0 0.25rem rgba(61, 81, 85, 0.25); /* Focus ring */
 }
 
 .main-navbar .navbar-toggler-icon {
-    /* Use Bootstrap's default SVG icon or customize */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(61, 81, 85, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3e");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(61, 81, 85, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
 }
-/* --- End Force Hamburger --- */
+/* --- End Mobile Navbar Toggle --- */
 
 
 /* Style Navbar links in the second bar (Centering handled by parent div) */
