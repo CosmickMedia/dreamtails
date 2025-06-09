@@ -20,10 +20,10 @@ get_header();
         <div class="row">
             <?php
             // Example structure with a potential sidebar
-            $main_col_class = 'col-lg-8'; // Default to 8 columns if sidebar is active
-            // You would typically add logic here to check if a sidebar is active
-            // e.g., if ( is_active_sidebar( 'primary-sidebar' ) ) { ... } else { $main_col_class = 'col-12'; }
-            // For now, assuming a potential sidebar might exist. Change to col-12 if no sidebar planned.
+            // Default layout assumed a sidebar, leaving the main content at eight
+            // columns on large screens. Since no sidebar is currently used we
+            // make the content area span the full width by default.
+            $main_col_class = 'col-12';
             ?>
             <div class="<?php echo esc_attr($main_col_class); ?>">
                 <?php if ( is_home() && ! is_front_page() ) : ?>

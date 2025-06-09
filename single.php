@@ -10,7 +10,7 @@ get_header();
     <main id="primary" class="site-main py-5">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-12">
                 <?php
                 while ( have_posts() ) :
                     the_post();
