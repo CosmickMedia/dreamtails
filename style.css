@@ -297,12 +297,10 @@ a:hover {
     display: flex;
     align-items: center;
     overflow: visible; /* allow hero image to overlap */
-    padding-top: 8rem !important;   /* Increase negative space */
-    padding-bottom: 8rem !important;
 }
 
 .hero-image {
-    background-image: url('assets/images/sleep.png');
+    /*background-image: url('assets/images/homepage_hero.png');ss*/
     background-size: contain; /* show entire image */
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -312,7 +310,7 @@ a:hover {
 
 @media (max-width: 767.98px) {
     .front-page-hero {
-        background-image: url('assets/images/sleep.png');
+        background-image: url('assets/images/homepage_hero.png');
         background-size: contain; /* show entire image on mobile */
         background-repeat: no-repeat;
         background-position: center bottom;

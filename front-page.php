@@ -11,10 +11,10 @@ get_header();
     <main id="primary" class="site-main">
 
 <?php // --- Hero Section --- ?>
-    <section class="front-page-hero" style="background-image: url('<?php echo esc_url( get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/sleep.png' ) ); ?>');">
+    <section class="front-page-hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 d-none d-md-block p-0 hero-image" style="background-image: url('<?php echo esc_url( get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/sleep.png' ) ); ?>');"></div>
+                <div class="col-md-6 d-none d-md-block p-0 hero-image" style=background-image: url('<?php echo esc_url( get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/homepage_hero.png') ); ?>');"></div>
                 <div class="col-md-6">
                     <div class="hero-content bg-light bg-opacity-75 p-4 p-md-5 rounded text-center">
                         <h1 class="display-4" style="color: var(--color-primary-dark-teal);">

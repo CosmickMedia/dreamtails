@@ -17,7 +17,7 @@ function dreamtails_customize_register( $wp_customize ) {
     ) );
 
     $wp_customize->add_setting( 'front_hero_image', array(
-        'default'           => get_template_directory_uri() . '/assets/images/sleep.png',
+        'default'           => get_template_directory_uri() . '/assets/images/homepage_hero.png',
         'sanitize_callback' => 'esc_url_raw',
     ) );
 
@@ -186,10 +186,10 @@ add_action( 'customize_register', 'dreamtails_customize_register' );
  * Output dynamic CSS based on customizer settings.
  */
 function dreamtails_customizer_css() {
-    $hero = get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/sleep.png' );
+    $hero = get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/homepage_hero.png');
     ?>
     <style type="text/css">
-        .front-page-hero { background-image: url('<?php echo esc_url( $hero ); ?>'); }
+
         @media (min-width: 768px) {
             .hero-image { background-image: url('<?php echo esc_url( $hero ); ?>'); }
         }
