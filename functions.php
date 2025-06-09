@@ -165,7 +165,8 @@ function dreamtails_scripts() {
     wp_enqueue_style( 'dreamtails-style', get_stylesheet_uri(), array('bootstrap'), DREAMTAILS_VERSION );
 
     // Google Fonts (Example - keep if needed)
-    wp_enqueue_style( 'dreamtails-josefin-sans', 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap', array(), null );
+//     wp_enqueue_style( 'dreamtails-josefin-sans', 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap', array(), null );
+    // Local Mollie Glaston font loaded via style.css
     // wp_enqueue_style( 'dreamtails-google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap', array(), null );
 
     // Enqueue comment reply script (Essential for threaded comments)

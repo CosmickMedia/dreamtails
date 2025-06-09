@@ -11,6 +11,15 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, theme-option
 Text Domain: dreamtails
 */
 
+@font-face {
+    font-family: "Mollie Glaston";
+    src: url("assets/fonts/mollie_glaston.otf") format("opentype"),
+         url("assets/fonts/mollie_glaston.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* --- Variables --- */
 :root {
     --color-primary-light-blue-grey: #BCC9C5; /* Primary 1 - Header/Footer BG */
@@ -76,7 +85,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: 0;
 }
 h1, h2 {
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Mollie Glaston", sans-serif;
 }
 
 /* Link styling */
@@ -350,7 +359,7 @@ a:hover {
 }
 #dreaming-of-you .icon-item p {
     color: var(--color-text); /* Ensure text color is set */
-    font-family: 'Josefin Sans', sans-serif; /* Google font */
+    font-family: 'Mollie Glaston', sans-serif; /* Google font */
 }
 
 /* Featured Pets Section */
