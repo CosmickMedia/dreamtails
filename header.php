@@ -48,7 +48,10 @@
                 </div>
 
                 <?php // Header "Book Appointment" Button (Top Right) - Larger, New BG, Rounded ?>
-                <div class="header-top-button">
+                <div class="header-top-button d-flex align-items-center">
+                    <span class="header-phone-number me-3">
+                        <i class="fas fa-phone me-2"></i>987-654-3210
+                    </span>
                     <a href="/book-appointment/" class="btn btn-lg btn-book-appointment"> <?php // Use btn-lg and custom class ?>
                         <i class="fa-regular fa-calendar-check me-2"></i><?php esc_html_e('Book Appointment', 'dreamtails'); ?>
                     </a>
