@@ -463,7 +463,7 @@ a:hover {
 
 #happy-tails .testimonial-decor {
     position: absolute;
-    right: -90px;
+    right: 0;
     bottom: -40px; /* Let the graphic extend past the section */
     width: 530px;
     max-width: none;
@@ -927,7 +927,7 @@ a:hover {
     /* Keep testimonial background image visible on small screens */
     #happy-tails .testimonial-decor {
         width: 450px;
-        right: -120px;
+        right: 0;
         bottom: -30px;
     }
 }
