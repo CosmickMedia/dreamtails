@@ -265,6 +265,146 @@ function dreamtails_customize_register( $wp_customize ) {
         'section' => 'dreamtails_concierge',
         'type'    => 'url',
     ) );
+
+    /* Footer Panel */
+    $wp_customize->add_panel( 'dreamtails_footer', array(
+        'title'    => __( 'Footer', 'dreamtails' ),
+        'priority' => 200,
+    ) );
+
+    /* Footer Column 1 */
+    $wp_customize->add_section( 'dreamtails_footer_col1', array(
+        'title' => __( 'Column 1', 'dreamtails' ),
+        'panel' => 'dreamtails_footer',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col1_heading', array(
+        'default'           => __( 'Navigation', 'dreamtails' ),
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'footer_col1_heading', array(
+        'label'   => __( 'Heading', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col1',
+        'type'    => 'text',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col1_text', array(
+        'default'           => '',
+        'sanitize_callback' => 'wp_kses_post',
+    ) );
+    $wp_customize->add_control( 'footer_col1_text', array(
+        'label'   => __( 'Additional Text', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col1',
+        'type'    => 'textarea',
+    ) );
+
+    /* Footer Column 2 */
+    $wp_customize->add_section( 'dreamtails_footer_col2', array(
+        'title' => __( 'Column 2', 'dreamtails' ),
+        'panel' => 'dreamtails_footer',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col2_heading', array(
+        'default'           => __( 'Dream Tails Sarasota', 'dreamtails' ),
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'footer_col2_heading', array(
+        'label'   => __( 'Heading', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col2',
+        'type'    => 'text',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col2_address', array(
+        'default'           => "6453 Lockwood Ridge Rd\nSarasota, FL 34243",
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ) );
+    $wp_customize->add_control( 'footer_col2_address', array(
+        'label'   => __( 'Address', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col2',
+        'type'    => 'textarea',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col2_phone', array(
+        'default'           => '941-203-1196',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'footer_col2_phone', array(
+        'label'   => __( 'Phone Number', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col2',
+        'type'    => 'text',
+    ) );
+
+    /* Footer Column 3 */
+    $wp_customize->add_section( 'dreamtails_footer_col3', array(
+        'title' => __( 'Column 3', 'dreamtails' ),
+        'panel' => 'dreamtails_footer',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col3_heading', array(
+        'default'           => __( 'Store Hours', 'dreamtails' ),
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'footer_col3_heading', array(
+        'label'   => __( 'Heading', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col3',
+        'type'    => 'text',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col3_hours', array(
+        'default'           => "Mon - Sat: 10am - 8pm\nSun: 11am - 7pm",
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ) );
+    $wp_customize->add_control( 'footer_col3_hours', array(
+        'label'   => __( 'Hours', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col3',
+        'type'    => 'textarea',
+    ) );
+
+    /* Footer Column 4 */
+    $wp_customize->add_section( 'dreamtails_footer_col4', array(
+        'title' => __( 'Column 4', 'dreamtails' ),
+        'panel' => 'dreamtails_footer',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col4_heading', array(
+        'default'           => __( 'About Us', 'dreamtails' ),
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'footer_col4_heading', array(
+        'label'   => __( 'Heading', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col4',
+        'type'    => 'text',
+    ) );
+
+    $wp_customize->add_setting( 'footer_col4_text', array(
+        'default'           => __( 'Part of the Petland family of stores.', 'dreamtails' ),
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ) );
+    $wp_customize->add_control( 'footer_col4_text', array(
+        'label'   => __( 'Text', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col4',
+        'type'    => 'textarea',
+    ) );
+
+    $wp_customize->add_setting( 'footer_facebook_url', array(
+        'default'           => '#',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'footer_facebook_url', array(
+        'label'   => __( 'Facebook URL', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col4',
+        'type'    => 'url',
+    ) );
+
+    $wp_customize->add_setting( 'footer_instagram_url', array(
+        'default'           => '#',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'footer_instagram_url', array(
+        'label'   => __( 'Instagram URL', 'dreamtails' ),
+        'section' => 'dreamtails_footer_col4',
+        'type'    => 'url',
+    ) );
 }
 add_action( 'customize_register', 'dreamtails_customize_register' );
 

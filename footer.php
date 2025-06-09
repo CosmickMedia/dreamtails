@@ -17,7 +17,7 @@
                         <?php the_custom_logo(); ?>
                     </div>
                 <?php endif; ?>
-                <h5 class="widget-title">Navigation</h5>
+                <h5 class="widget-title"><?php echo esc_html( get_theme_mod( 'footer_col1_heading', __( 'Navigation', 'dreamtails' ) ) ); ?></h5>
                 <?php
                 if ( has_nav_menu( 'footer' ) ) {
                     wp_nav_menu(
@@ -29,43 +29,35 @@
                         )
                     );
                 }
+                $footer_col1_text = get_theme_mod( 'footer_col1_text', '' );
+                if ( $footer_col1_text ) {
+                    echo wpautop( wp_kses_post( $footer_col1_text ) );
+                }
                 ?>
-                <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-                    <?php dynamic_sidebar( 'footer-1' ); ?>
-                <?php endif; ?>
             </div><?php // Footer Column 2: Info/Address ?>
             <div class="col-lg-3 col-md-6 footer-info">
-                <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-                    <?php dynamic_sidebar( 'footer-2' ); ?>
-                <?php else: ?>
-                    <h5 class="widget-title"><?php esc_html_e( 'Dream Tails Sarasota', 'dreamtails' ); ?></h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>6453 Lockwood Ridge Rd<br>Sarasota, FL 34243</p>
-                    <p><i class="fas fa-phone me-2"></i><a href="tel:941-203-1196">941-203-1196</a></p>
-                <?php endif; ?>
+                <h5 class="widget-title"><?php echo esc_html( get_theme_mod( 'footer_col2_heading', __( 'Dream Tails Sarasota', 'dreamtails' ) ) ); ?></h5>
+                <?php
+                $address = get_theme_mod( 'footer_col2_address', "6453 Lockwood Ridge Rd\nSarasota, FL 34243" );
+                $phone   = get_theme_mod( 'footer_col2_phone', '941-203-1196' );
+                ?>
+                <p><i class="fas fa-map-marker-alt me-2"></i><?php echo nl2br( esc_html( $address ) ); ?></p>
+                <p><i class="fas fa-phone me-2"></i><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a></p>
+                <div class="mt-2">
+                    <iframe src="https://www.google.com/maps?q=<?php echo rawurlencode( $address ); ?>&amp;output=embed" width="100%" height="150" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div><?php // Footer Column 3: Hours ?>
             <div class="col-lg-3 col-md-6 footer-hours">
-                <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
-                    <?php dynamic_sidebar( 'footer-3' ); ?>
-                <?php else: ?>
-                    <h5 class="widget-title"><?php esc_html_e( 'Store Hours', 'dreamtails' ); ?></h5>
-                    <p><i class="far fa-clock me-2"></i>Mon - Sat: 10am - 8pm<br>
-                        <span style="padding-left: 26px;">Sun: 11am - 7pm</span> <?php // Align second line slightly ?>
-                    </p>
-                <?php endif; ?>
+                <h5 class="widget-title"><?php echo esc_html( get_theme_mod( 'footer_col3_heading', __( 'Store Hours', 'dreamtails' ) ) ); ?></h5>
+                <p><i class="far fa-clock me-2"></i><?php echo nl2br( esc_html( get_theme_mod( 'footer_col3_hours', "Mon - Sat: 10am - 8pm\nSun: 11am - 7pm" ) ) ); ?></p>
             </div><?php // Footer Column 4: Extra Info ?>
             <div class="col-lg-3 col-md-6 footer-extra">
-                <?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
-                    <?php dynamic_sidebar( 'footer-4' ); ?>
-                <?php else: ?>
-                    <h5 class="widget-title"><?php esc_html_e( 'About Us', 'dreamtails' ); ?></h5>
-                    <p><?php esc_html_e( 'Part of the Petland family of stores.', 'dreamtails' ); ?></p>
-                    <?php // Add social icons here if desired ?>
-                    <div>
-                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
-                        <?php // Add links ?>
-                    </div>
-                <?php endif; ?>
+                <h5 class="widget-title"><?php echo esc_html( get_theme_mod( 'footer_col4_heading', __( 'About Us', 'dreamtails' ) ) ); ?></h5>
+                <p><?php echo esc_html( get_theme_mod( 'footer_col4_text', __( 'Part of the Petland family of stores.', 'dreamtails' ) ) ); ?></p>
+                <div>
+                    <a href="<?php echo esc_url( get_theme_mod( 'footer_facebook_url', '#' ) ); ?>" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="<?php echo esc_url( get_theme_mod( 'footer_instagram_url', '#' ) ); ?>" class="me-2"><i class="fab fa-instagram"></i></a>
+                </div>
             </div></div><hr class="mt-4 mb-3" style="border-color: rgba(255, 255, 255, 0.2);">
 
         <div class="footer-bottom text-center">
