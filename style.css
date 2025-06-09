@@ -41,6 +41,16 @@ Text Domain: dreamtails
     --font-secondary: 'Playfair Display', serif; /* Headings */
 }
 
+/* WooCommerce Blocks (Cart & Checkout) */
+.wp-block-woocommerce-cart,
+.wp-block-woocommerce-checkout {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 /* --- Reset & Base --- */
 *,
 *::before,
