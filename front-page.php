@@ -11,15 +11,17 @@ get_header();
     <main id="primary" class="site-main">
 
 <?php // --- Hero Section --- ?>
-    <section class="front-page-hero">
+    <section class="front-page-hero" style="background-image: url('<?php echo esc_url( get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/sleep.png' ) ); ?>');">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 d-none d-md-block p-0 hero-image"></div>
+                <div class="col-md-6 d-none d-md-block p-0 hero-image" style="background-image: url('<?php echo esc_url( get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/sleep.png' ) ); ?>');"></div>
                 <div class="col-md-6">
                     <div class="hero-content bg-light bg-opacity-75 p-4 p-md-5 rounded text-center">
-                        <h1 class="display-4" style="color: var(--color-primary-dark-teal);"><?php esc_html_e( 'where pets find their people', 'dreamtails' ); ?></h1>
-                        <a href="/book-appointment/" class="btn btn-lg mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
-                            <i class="fa-regular fa-calendar-check me-2"></i> <?php esc_html_e( 'Book an Appointment', 'dreamtails' ); ?>
+                        <h1 class="display-4" style="color: var(--color-primary-dark-teal);">
+                            <?php echo esc_html( get_theme_mod( 'front_hero_heading', __( 'where pets find their people', 'dreamtails' ) ) ); ?>
+                        </h1>
+                        <a href="<?php echo esc_url( get_theme_mod( 'front_hero_button_url', '/book-appointment/' ) ); ?>" class="btn btn-lg mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
+                            <i class="fa-regular fa-calendar-check me-2"></i> <?php echo esc_html( get_theme_mod( 'front_hero_button_text', __( 'Book an Appointment', 'dreamtails' ) ) ); ?>
                         </a>
                     </div>
                 </div>
@@ -33,15 +35,15 @@ get_header();
             <div class="row text-center gy-4">
                 <div class="col-md-4 icon-item">
                     <i class="fas fa-dog fa-3x mb-3"></i>
-                    <p class="fw-bold"><?php esc_html_e( 'puppies dreaming of you', 'dreamtails' ); ?></p>
+                    <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon1_text', __( 'puppies dreaming of you', 'dreamtails' ) ) ); ?></p>
                 </div>
                 <div class="col-md-4 icon-item">
                     <i class="fas fa-cat fa-3x mb-3"></i>
-                    <p class="fw-bold"><?php esc_html_e( 'kittens dreaming of you', 'dreamtails' ); ?></p>
+                    <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon2_text', __( 'kittens dreaming of you', 'dreamtails' ) ) ); ?></p>
                 </div>
                 <div class="col-md-4 icon-item">
                     <i class="fas fa-concierge-bell fa-3x mb-3"></i>
-                    <p class="fw-bold"><?php esc_html_e( 'concierge service', 'dreamtails' ); ?></p>
+                    <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon3_text', __( 'concierge service', 'dreamtails' ) ) ); ?></p>
                 </div>
             </div>
         </div>
@@ -50,7 +52,9 @@ get_header();
 <?php // --- Featured Pets Section --- ?>
     <section class="front-page-section py-5 bg-light" id="featured-pets">
         <div class="container">
-            <h2 class="section-title text-center mb-4"><?php esc_html_e( 'featured dream pets', 'dreamtails' ); ?></h2>
+            <h2 class="section-title text-center mb-4">
+                <?php echo esc_html( get_theme_mod( 'front_featured_pets_heading', __( 'featured dream pets', 'dreamtails' ) ) ); ?>
+            </h2>
             <div class="row featured-pets-row align-items-center">
                 <div class="col-12 col-md-9">
                     <div class="featured-pets-images d-flex flex-wrap flex-md-nowrap justify-content-between">
@@ -79,7 +83,9 @@ get_header();
 <?php // --- Testimonial Section --- ?>
     <section class="front-page-section py-5" id="happy-tails">
         <div class="container">
-            <h2 class="section-title text-center mb-5"><?php esc_html_e( 'happy tails start here', 'dreamtails' ); ?></h2>
+            <h2 class="section-title text-center mb-5">
+                <?php echo esc_html( get_theme_mod( 'front_testimonial_heading', __( 'happy tails start here', 'dreamtails' ) ) ); ?>
+            </h2>
             <?php
             $review_query = new WP_Query( array(
                 'post_type'      => 'reviews',
@@ -116,12 +122,14 @@ get_header();
 <?php // --- Concierge Level Care Section --- ?>
     <section class="front-page-section py-5 bg-light" id="concierge-care">
         <div class="container text-center">
-            <h2 class="section-title mb-4"><?php esc_html_e( 'concierge level care', 'dreamtails' ); ?></h2>
+            <h2 class="section-title mb-4">
+                <?php echo esc_html( get_theme_mod( 'front_concierge_heading', __( 'concierge level care', 'dreamtails' ) ) ); ?>
+            </h2>
             <div class="concierge-care-content mx-auto" style="max-width: 800px;">
-                <p class="lead"><?php echo esc_html__( 'Our service and environment are designed to match the high quality of puppies and kittens in our store and meet your expectations.', 'dreamtails' ); ?></p>
-                <p><?php echo esc_html__( 'We think the puppies and kittens are worth it and so are you!', 'dreamtails' ); ?></p>
-                <a href="/about/" class="btn mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
-                    <i class="fas fa-info-circle me-1"></i> <?php esc_html_e( 'Learn more about Dream Tails Boutique', 'dreamtails' ); ?>
+                <p class="lead"><?php echo esc_html( get_theme_mod( 'front_concierge_lead', __( 'Our service and environment are designed to match the high quality of puppies and kittens in our store and meet your expectations.', 'dreamtails' ) ) ); ?></p>
+                <p><?php echo esc_html( get_theme_mod( 'front_concierge_desc', __( 'We think the puppies and kittens are worth it and so are you!', 'dreamtails' ) ) ); ?></p>
+                <a href="<?php echo esc_url( get_theme_mod( 'front_concierge_button_url', '/about/' ) ); ?>" class="btn mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
+                    <i class="fas fa-info-circle me-1"></i> <?php echo esc_html( get_theme_mod( 'front_concierge_button_text', __( 'Learn more about Dream Tails Boutique', 'dreamtails' ) ) ); ?>
                 </a>
             </div>
         </div>

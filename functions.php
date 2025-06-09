@@ -313,8 +313,8 @@ add_filter( 'nav_menu_css_class', 'dreamtails_add_menu_li_class', 1, 3 );
 // Include template tags file (optional, for helper functions)
 // require get_template_directory() . '/inc/template-tags.php';
 
-// Include customizer additions (optional, for theme options)
-// require get_template_directory() . '/inc/customizer.php';
+// Include customizer additions (for theme options)
+require get_template_directory() . '/inc/customizer.php';
 
 // If using a Walker Class for Bootstrap Nav:
 // require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php'; // Download and place NavWalker class if needed
