@@ -201,6 +201,20 @@ a:hover {
     flex-grow: 1; /* Ensures footer sticks to bottom */
 }
 
+/* Custom max-width container */
+.main-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Breadcrumbs styling */
+.breadcrumbs {
+    font-size: 0.875rem;
+}
+
 /* --- Footer --- */
 .site-footer {
     background-color: var(--color-footer-bg);

@@ -9,6 +9,7 @@
  */
 
 get_header();
+get_template_part( 'template-parts/page', 'header' );
 ?>
 
 <?php if ( is_product_category() && is_active_sidebar( 'shop-sidebar' ) ) : ?>

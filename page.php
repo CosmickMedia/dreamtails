@@ -5,10 +5,11 @@
  */
 
 get_header();
+get_template_part( 'template-parts/page', 'header' );
 ?>
 
     <main id="primary" class="site-main py-5"> <?php // Added padding utility class ?>
-    <div class="container">
+    <div class="main-container">
         <div class="row justify-content-center"> <?php // Center content area ?>
             <div class="col-lg-8"> <?php // Limit content width ?>
                 <?php
