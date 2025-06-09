@@ -59,14 +59,14 @@ get_header();
                 <div class="col-12 col-md-9">
                     <div class="featured-pets-images d-flex flex-wrap flex-md-nowrap justify-content-between">
                         <?php
-                        // --- Placeholder Content ---
-                        // Replace with WP_Query for 'pet' CPT
-                        for ($i = 1; $i <= 3; $i++) { ?>
+                        // Output featured pet images from Customizer settings.
+                        for ( $i = 1; $i <= 3; $i++ ) {
+                            $image = get_theme_mod( 'front_featured_pet_image' . $i, get_template_directory_uri() . '/assets/images/pet-placeholder-' . $i . '.jpg' );
+                            ?>
                             <div class="featured-pet-image mb-3 mb-md-0 text-center">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pet-placeholder-' . $i . '.jpg'); ?>" alt="Featured Pet <?php echo $i; ?>" class="img-fluid">
+                                <img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( sprintf( __( 'Featured Pet %d', 'dreamtails' ), $i ) ); ?>" class="img-fluid">
                             </div>
                         <?php }
-                        // --- End Placeholder ---
                         ?>
                     </div>
                 </div>
