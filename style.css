@@ -360,6 +360,7 @@ a:hover {
 #dreaming-of-you .icon-item p {
     color: var(--color-text); /* Ensure text color is set */
     font-family: 'Mollie Glaston', sans-serif; /* Google font */
+    font-size: 2rem; /* Larger text for icon captions */
 }
 
 /* Featured Pets Section */
@@ -494,6 +495,7 @@ a:hover {
 }
 #concierge-care .section-title {
     /* Margin handled by mb-4 utility */
+    font-size: 3.5rem; /* Match size of other section titles */
 }
 #concierge-care p.lead {
     font-size: 1.2rem; /* Make lead paragraph slightly larger */
