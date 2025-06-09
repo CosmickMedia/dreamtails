@@ -895,3 +895,35 @@ a:hover {
         padding-bottom: 0.5rem !important;
     }
 }
+
+/* --- WooCommerce Pet Card --- */
+.pet-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pet-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+}
+
+.product-price-tag {
+    background-color: var(--color-secondary-light-pink);
+    color: var(--color-primary-dark-teal);
+}
+
+.btn-gold,
+.bg-gold {
+    background-color: var(--color-secondary-light-pink) !important;
+    color: var(--color-primary-dark-teal) !important;
+    border-color: var(--color-secondary-light-pink) !important;
+}
+.btn-gold:hover,
+.btn-gold:focus {
+    background-color: var(--color-secondary-teal) !important;
+    border-color: var(--color-secondary-teal) !important;
+    color: var(--color-primary-dark-teal) !important;
+}
+
+.pet-breed .badge {
+    background-color: var(--color-primary-light-yellow);
+    color: var(--color-primary-dark-teal);
+}
