@@ -2,37 +2,33 @@
 defined( 'ABSPATH' ) || exit;
 get_header( 'shop' );
 ?>
-<main id="primary" class="site-main py-5">
-  <div class="main-container">
-    <?php do_action( 'woocommerce_before_main_content' ); ?>
+<?php do_action( 'woocommerce_before_main_content' ); ?>
 
-    <?php if ( woocommerce_product_loop() ) : ?>
-      <div class="shop-toolbar d-flex justify-content-between align-items-center mb-3">
+<?php if ( woocommerce_product_loop() ) : ?>
+    <div class="shop-toolbar d-flex justify-content-between align-items-center mb-3">
         <?php woocommerce_result_count(); ?>
         <?php woocommerce_catalog_ordering(); ?>
-      </div>
-      <select class="product-filter form-select mb-3 d-block d-md-none">
+    </div>
+    <select class="product-filter form-select mb-3 d-block d-md-none">
         <option value=""><?php esc_html_e( 'Filter Products', 'dreamtails' ); ?></option>
-      </select>
+    </select>
 
-      <?php woocommerce_product_loop_start(); ?>
+    <?php woocommerce_product_loop_start(); ?>
 
-      <?php if ( wc_get_loop_prop( 'total' ) ) {
+    <?php if ( wc_get_loop_prop( 'total' ) ) {
         while ( have_posts() ) {
-          the_post();
-          wc_get_template_part( 'content', 'product' );
+            the_post();
+            wc_get_template_part( 'content', 'product' );
         }
-      } ?>
+    } ?>
 
-      <?php woocommerce_product_loop_end(); ?>
+    <?php woocommerce_product_loop_end(); ?>
 
-      <?php do_action( 'woocommerce_after_shop_loop' ); ?>
-    <?php else : ?>
-      <?php do_action( 'woocommerce_no_products_found' ); ?>
-    <?php endif; ?>
+    <?php do_action( 'woocommerce_after_shop_loop' ); ?>
+<?php else : ?>
+    <?php do_action( 'woocommerce_no_products_found' ); ?>
+<?php endif; ?>
 
-    <?php do_action( 'woocommerce_after_main_content' ); ?>
-  </div>
-</main>
+<?php do_action( 'woocommerce_after_main_content' ); ?>
 <?php
 get_footer( 'shop' );

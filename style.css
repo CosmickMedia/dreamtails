@@ -44,7 +44,7 @@ Text Domain: dreamtails
 /* WooCommerce Blocks (Cart & Checkout) */
 .wp-block-woocommerce-cart,
 .wp-block-woocommerce-checkout {
-    max-width: 1140px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
