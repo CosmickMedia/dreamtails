@@ -62,6 +62,15 @@ function dreamtails_customize_register( $wp_customize ) {
         'panel' => 'dreamtails_front_page',
     ) );
 
+    $wp_customize->add_setting( 'front_icon1_img', array(
+        'default'           => get_template_directory_uri() . '/assets/images/puppy_ico.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'front_icon1_img', array(
+        'label'   => __( 'First Icon Image', 'dreamtails' ),
+        'section' => 'dreamtails_icons',
+    ) ) );
+
     $wp_customize->add_setting( 'front_icon1_text', array(
         'default'           => __( 'puppies dreaming of you', 'dreamtails' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -72,6 +81,15 @@ function dreamtails_customize_register( $wp_customize ) {
         'type'    => 'text',
     ) );
 
+    $wp_customize->add_setting( 'front_icon2_img', array(
+        'default'           => get_template_directory_uri() . '/assets/images/kittens_ico.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'front_icon2_img', array(
+        'label'   => __( 'Second Icon Image', 'dreamtails' ),
+        'section' => 'dreamtails_icons',
+    ) ) );
+
     $wp_customize->add_setting( 'front_icon2_text', array(
         'default'           => __( 'kittens dreaming of you', 'dreamtails' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -81,6 +99,15 @@ function dreamtails_customize_register( $wp_customize ) {
         'section' => 'dreamtails_icons',
         'type'    => 'text',
     ) );
+
+    $wp_customize->add_setting( 'front_icon3_img', array(
+        'default'           => get_template_directory_uri() . '/assets/images/concierge.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'front_icon3_img', array(
+        'label'   => __( 'Third Icon Image', 'dreamtails' ),
+        'section' => 'dreamtails_icons',
+    ) ) );
 
     $wp_customize->add_setting( 'front_icon3_text', array(
         'default'           => __( 'concierge service', 'dreamtails' ),
