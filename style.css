@@ -454,6 +454,19 @@ a:hover {
     font-size: 1rem; /* Adjust size */
 }
 
+#happy-tails {
+    position: relative;
+    overflow: visible;
+}
+
+#happy-tails .testimonial-decor {
+    position: absolute;
+    bottom: 0;
+    right: -50px;
+    width: 250px;
+    max-width: 40%;
+}
+
 /* Concierge Care Section */
 #concierge-care {
     background-color: var(--color-light-background);

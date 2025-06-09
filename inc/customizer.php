@@ -163,6 +163,15 @@ function dreamtails_customize_register( $wp_customize ) {
         'type'    => 'text',
     ) );
 
+    $wp_customize->add_setting( 'front_testimonial_image', array(
+        'default'           => get_template_directory_uri() . '/assets/images/reviews-image.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'front_testimonial_image', array(
+        'label'   => __( 'Testimonial Image', 'dreamtails' ),
+        'section' => 'dreamtails_testimonials',
+    ) ) );
+
     /* Concierge Section */
     $wp_customize->add_section( 'dreamtails_concierge', array(
         'title' => __( 'Concierge Section', 'dreamtails' ),
