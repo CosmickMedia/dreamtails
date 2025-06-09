@@ -39,10 +39,12 @@
                 <h5 class="widget-title"><?php echo esc_html( get_theme_mod( 'footer_col2_heading', __( 'Dream Tails Sarasota', 'dreamtails' ) ) ); ?></h5>
                 <?php
                 $address = get_theme_mod( 'footer_col2_address', "6453 Lockwood Ridge Rd\nSarasota, FL 34243" );
-                $phone   = get_theme_mod( 'footer_col2_phone', '941-203-1196' );
+                $phone   = get_theme_mod( 'homepage_phone_number', '' );
                 ?>
                 <p><i class="fas fa-map-marker-alt me-2"></i><?php echo nl2br( esc_html( $address ) ); ?></p>
-                <p><i class="fas fa-phone me-2"></i><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a></p>
+                <?php if ( $phone ) : ?>
+                    <p><i class="fas fa-phone me-2"></i><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a></p>
+                <?php endif; ?>
                 <div class="mt-2">
                     <iframe src="https://www.google.com/maps?q=<?php echo rawurlencode( $address ); ?>&amp;output=embed" width="100%" height="150" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>

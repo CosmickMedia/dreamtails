@@ -47,15 +47,31 @@
                     </div>
                 </div>
 
-                <?php // Header "Book Appointment" Button (Top Right) - Larger, New BG, Rounded ?>
+                <?php // Header contact info and CTA button ?>
                 <div class="header-top-button d-flex align-items-center">
-                    <span class="header-phone-number me-3">
-                        <i class="fas fa-phone me-2"></i>987-654-3210
-                    </span>
-                    <a href="/book-appointment/" class="btn btn-lg btn-book-appointment"> <?php // Use btn-lg and custom class ?>
-                        <i class="fa-regular fa-calendar-check me-2"></i><?php esc_html_e('Book Appointment', 'dreamtails'); ?>
-                    </a>
-                    <?php // TODO: Update href ?>
+                    <div class="header-contact d-flex align-items-center me-3">
+                        <?php
+                        $phone     = get_theme_mod( 'homepage_phone_number', '' );
+                        $book_url  = get_theme_mod( 'header_book_button_url', '' );
+                        if ( $phone ) : ?>
+                            <span class="header-phone-number me-3">
+                                <i class="fas fa-phone me-2"></i><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
+                            </span>
+                        <?php endif; ?>
+                        <a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'myaccount' ) : '#' ); ?>" class="header-icon header-account-icon me-3">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <?php if ( function_exists( 'wc_get_cart_url' ) && ! is_catalog_mode() ) : ?>
+                            <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="header-icon header-cart-icon me-3">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <?php if ( $book_url ) : ?>
+                        <a href="<?php echo esc_url( $book_url ); ?>" class="btn btn-lg btn-book-appointment">
+                            <i class="fa-regular fa-calendar-check me-2"></i><?php esc_html_e( 'Book Appointment', 'dreamtails' ); ?>
+                        </a>
+                    <?php endif; ?>
                 </div>
 
             </div></div><?php // --- Main Navigation Bar (Bottom Bar - White BG, Hamburger ALWAYS Left, Menu Center) --- ?>
