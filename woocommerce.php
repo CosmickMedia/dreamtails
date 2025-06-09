@@ -9,7 +9,9 @@
  */
 
 get_header();
-get_template_part( 'template-parts/page', 'header' );
+if ( ! ( is_shop() || is_product_category() || is_product_tag() ) ) {
+    get_template_part( 'template-parts/page', 'header' );
+}
 ?>
 
 <?php if ( is_product_category() && is_active_sidebar( 'shop-sidebar' ) ) : ?>
