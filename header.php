@@ -48,11 +48,13 @@
                 </div>
 
                 <?php // Header contact info and CTA button ?>
-                <div class="header-top-button d-flex align-items-center">
-                    <div class="header-contact d-flex align-items-center me-3">
+                <div class="header-top-button">
+                    <div class="header-contact d-flex align-items-center">
                         <?php
-                        $phone     = get_theme_mod( 'homepage_phone_number', '' );
-                        $book_url  = get_theme_mod( 'header_book_button_url', '' );
+                        $phone      = get_theme_mod( 'homepage_phone_number', '' );
+                        $book_url   = get_theme_mod( 'header_book_button_url', '' );
+                        $book_text  = get_theme_mod( 'header_book_button_text', __( 'Book Appointment', 'dreamtails' ) );
+                        $book_icon  = get_theme_mod( 'header_book_button_icon', 'fa-regular fa-calendar-check' );
                         if ( $phone ) : ?>
                             <span class="header-phone-number me-3">
                                 <i class="fas fa-phone me-2"></i><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
@@ -68,8 +70,8 @@
                         <?php endif; ?>
                     </div>
                     <?php if ( $book_url ) : ?>
-                        <a href="<?php echo esc_url( $book_url ); ?>" class="btn btn-lg btn-book-appointment">
-                            <i class="fa-regular fa-calendar-check me-2"></i><?php esc_html_e( 'Book Appointment', 'dreamtails' ); ?>
+                        <a href="<?php echo esc_url( $book_url ); ?>" class="btn btn-lg btn-book-appointment d-inline-flex align-items-center mt-2">
+                            <?php if ( $book_icon ) : ?><i class="<?php echo esc_attr( $book_icon ); ?> me-2"></i><?php endif; ?><?php echo esc_html( $book_text ); ?>
                         </a>
                     <?php endif; ?>
                 </div>

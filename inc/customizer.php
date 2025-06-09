@@ -101,6 +101,27 @@ function dreamtails_customize_register( $wp_customize ) {
         'type'    => 'url',
     ) );
 
+    $wp_customize->add_setting( 'header_book_button_text', array(
+        'default'           => __( 'Book Appointment', 'dreamtails' ),
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'header_book_button_text', array(
+        'label'   => __( 'Header Book Appointment Text', 'dreamtails' ),
+        'section' => 'dreamtails_homepage_settings',
+        'type'    => 'text',
+    ) );
+
+    $wp_customize->add_setting( 'header_book_button_icon', array(
+        'default'           => 'fa-regular fa-calendar-check',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'header_book_button_icon', array(
+        'label'       => __( 'Header Book Appointment Icon', 'dreamtails' ),
+        'section'     => 'dreamtails_homepage_settings',
+        'type'        => 'text',
+        'description' => __( 'Font Awesome class, e.g. fa-calendar-check', 'dreamtails' ),
+    ) );
+
     /* Icon Section */
     $wp_customize->add_section( 'dreamtails_icons', array(
         'title' => __( 'Icon Section', 'dreamtails' ),
