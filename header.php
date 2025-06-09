@@ -51,7 +51,7 @@
                 <div class="header-top-button">
                     <div class="header-contact d-flex align-items-center">
                         <?php
-                        $phone      = get_theme_mod( 'homepage_phone_number', '' );
+                        $phone      = get_theme_mod( 'homepage_phone_number' );
                         $book_url   = get_theme_mod( 'header_book_button_url', '' );
                         $book_text  = get_theme_mod( 'header_book_button_text', __( 'Book Appointment', 'dreamtails' ) );
                         $book_icon  = get_theme_mod( 'header_book_button_icon', 'fa-regular fa-calendar-check' );
