@@ -135,6 +135,18 @@ function dreamtails_customize_register( $wp_customize ) {
         'type'    => 'text',
     ) );
 
+    // Featured Pet Images
+    for ( $i = 1; $i <= 3; $i++ ) {
+        $wp_customize->add_setting( "front_featured_pet_image{$i}", array(
+            'default'           => get_template_directory_uri() . "/assets/images/pet-placeholder-{$i}.jpg",
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, "front_featured_pet_image{$i}", array(
+            'label'   => sprintf( __( 'Featured Pet Image %d', 'dreamtails' ), $i ),
+            'section' => 'dreamtails_featured_pets',
+        ) ) );
+    }
+
     /* Testimonials */
     $wp_customize->add_section( 'dreamtails_testimonials', array(
         'title' => __( 'Testimonials', 'dreamtails' ),
