@@ -463,12 +463,19 @@ a:hover {
 
 #happy-tails .testimonial-decor {
     position: absolute;
-    top: 100px;
     right: -90px;
+    bottom: -40px; /* Let the graphic extend past the section */
     width: 530px;
     max-width: none;
-    z-index: -1; /* Ensure image stays behind testimonial content */
+    z-index: 1; /* Place image above the background */
     pointer-events: none;
+}
+
+/* Keep testimonial text above the decorative image */
+#happy-tails .section-title,
+#happy-tails .testimonial-content {
+    position: relative;
+    z-index: 2;
 }
 
 /* Concierge Care Section */
@@ -921,7 +928,7 @@ a:hover {
     #happy-tails .testimonial-decor {
         width: 450px;
         right: -120px;
-        top: 80px;
+        bottom: -30px;
     }
 }
 
