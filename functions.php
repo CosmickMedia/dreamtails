@@ -90,9 +90,51 @@ function dreamtails_setup() {
     // Add support for full and wide align images.
     add_theme_support( 'align-wide' );
 
-    // Add support for editor styles.
+    // Add support for editor styles and load main stylesheet in the editor.
     add_theme_support( 'editor-styles' );
-    // add_editor_style( 'assets/css/editor-style.css' );
+    add_editor_style( 'style.css' );
+
+    // Additional Gutenberg features.
+    add_theme_support( 'custom-line-height' );
+    add_theme_support( 'custom-spacing' );
+    add_theme_support( 'custom-units' );
+    add_theme_support( 'editor-font-sizes', array(
+        array(
+            'name'      => __( 'Small', 'dreamtails' ),
+            'shortName' => 'S',
+            'size'      => 14,
+            'slug'      => 'small',
+        ),
+        array(
+            'name'      => __( 'Normal', 'dreamtails' ),
+            'shortName' => 'M',
+            'size'      => 18,
+            'slug'      => 'normal',
+        ),
+        array(
+            'name'      => __( 'Large', 'dreamtails' ),
+            'shortName' => 'L',
+            'size'      => 24,
+            'slug'      => 'large',
+        ),
+    ) );
+    add_theme_support( 'editor-color-palette', array(
+        array(
+            'name'  => __( 'Primary', 'dreamtails' ),
+            'slug'  => 'primary',
+            'color' => '#3D5155',
+        ),
+        array(
+            'name'  => __( 'Accent', 'dreamtails' ),
+            'slug'  => 'accent',
+            'color' => '#F1E6B2',
+        ),
+        array(
+            'name'  => __( 'Secondary', 'dreamtails' ),
+            'slug'  => 'secondary',
+            'color' => '#F7BCAC',
+        ),
+    ) );
 
     // Add support for responsive embedded content.
     add_theme_support( 'responsive-embeds' );

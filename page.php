@@ -8,22 +8,20 @@ get_header();
 get_template_part( 'template-parts/page', 'header' );
 ?>
 
-    <main id="primary" class="site-main py-5"> <?php // Added padding utility class ?>
+    <main id="primary" class="site-main py-5">
     <div class="main-container">
-        <div class="row justify-content-center"> <?php // Center content area ?>
-            <div class="col-lg-8"> <?php // Limit content width ?>
-                <?php
-                while ( have_posts() ) :
-                    the_post();
+        <?php
+        while ( have_posts() ) :
+            the_post();
 
-                    get_template_part( 'template-parts/content', 'page' );
+            get_template_part( 'template-parts/content', 'page' );
 
-                    // If comments are open or we have at least one comment, load up the comment template.
-                    if ( comments_open() || get_comments_number() ) :
-                        comments_template(); // Ensure this is called
-                    endif;
+            // If comments are open or we have at least one comment, load up the comment template.
+            if ( comments_open() || get_comments_number() ) :
+                comments_template();
+            endif;
 
-                endwhile; // End of the loop.
-                ?>
-            </div></div></div></main><?php
+        endwhile; // End of the loop.
+        ?>
+    </div></main><?php
 get_footer();
