@@ -345,9 +345,9 @@ a:hover {
     padding-top: 8rem;   /* Increase negative space */
     padding-bottom: 8rem;
 }
-#dreaming-of-you .icon-item i {
-    color: var(--color-primary-dark-grey); /* Dark grey icons */
-    font-size: 5rem; /* Larger icons */
+#dreaming-of-you .icon-item img {
+    width: 5rem;
+    height: auto;
 }
 #dreaming-of-you .icon-item p {
     color: var(--color-text); /* Ensure text color is set */

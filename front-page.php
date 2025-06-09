@@ -34,15 +34,15 @@ get_header();
         <div class="container">
             <div class="row text-center gy-4">
                 <div class="col-md-4 icon-item">
-                    <i class="fas fa-dog fa-3x mb-3"></i>
+                    <img src="<?php echo esc_url( get_theme_mod( 'front_icon1_img', get_template_directory_uri() . '/assets/images/puppy_ico.png' ) ); ?>" alt="<?php esc_attr_e( 'Puppy icon', 'dreamtails' ); ?>" class="mb-3" />
                     <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon1_text', __( 'puppies dreaming of you', 'dreamtails' ) ) ); ?></p>
                 </div>
                 <div class="col-md-4 icon-item">
-                    <i class="fas fa-cat fa-3x mb-3"></i>
+                    <img src="<?php echo esc_url( get_theme_mod( 'front_icon2_img', get_template_directory_uri() . '/assets/images/kittens_ico.png' ) ); ?>" alt="<?php esc_attr_e( 'Kitten icon', 'dreamtails' ); ?>" class="mb-3" />
                     <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon2_text', __( 'kittens dreaming of you', 'dreamtails' ) ) ); ?></p>
                 </div>
                 <div class="col-md-4 icon-item">
-                    <i class="fas fa-concierge-bell fa-3x mb-3"></i>
+                    <img src="<?php echo esc_url( get_theme_mod( 'front_icon3_img', get_template_directory_uri() . '/assets/images/concierge.png' ) ); ?>" alt="<?php esc_attr_e( 'Concierge icon', 'dreamtails' ); ?>" class="mb-3" />
                     <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon3_text', __( 'concierge service', 'dreamtails' ) ) ); ?></p>
                 </div>
             </div>
