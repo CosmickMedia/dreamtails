@@ -57,7 +57,7 @@
                         $book_icon  = get_theme_mod( 'header_book_button_icon', 'fa-regular fa-calendar-check' );
                         if ( $phone ) : ?>
                             <span class="header-phone-number me-3">
-                                <i class="fas fa-phone me-2"></i><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
+                                <i class="fas fa-phone me-2 header-icon"></i><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
                             </span>
                         <?php endif; ?>
                         <a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'myaccount' ) : '#' ); ?>" class="header-icon header-account-icon me-3">
