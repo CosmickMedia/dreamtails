@@ -3,14 +3,16 @@ defined( 'ABSPATH' ) || exit;
 get_header( 'shop' );
 ?>
 <main id="primary" class="site-main py-5">
-  <div class="container">
+  <div class="main-container">
     <?php do_action( 'woocommerce_before_main_content' ); ?>
 
     <header class="woocommerce-products-header mb-4 text-center">
       <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
         <h1 class="page-title mb-2"><?php woocommerce_page_title(); ?></h1>
       <?php endif; ?>
-      <?php dreamtails_breadcrumb(); ?>
+      <div class="breadcrumbs small">
+        <?php dreamtails_breadcrumb(); ?>
+      </div>
     </header>
 
     <?php if ( woocommerce_product_loop() ) : ?>

@@ -218,7 +218,7 @@ add_action('woocommerce_after_main_content', 'dreamtails_woocommerce_wrapper_end
 
 function dreamtails_woocommerce_wrapper_start() {
     // Container and row for WooCommerce pages
-    echo '<main id="primary" class="site-main py-5"><div class="container"><div class="row">';
+    echo '<main id="primary" class="site-main py-5"><div class="main-container"><div class="row">';
 }
 
 function dreamtails_woocommerce_wrapper_end() {

@@ -10,7 +10,9 @@ global $product;
   </div>
   <div class="col-md-6">
     <h1 class="product_title entry-title mb-3"><?php the_title(); ?></h1>
-    <?php dreamtails_breadcrumb(); ?>
+    <div class="breadcrumbs small">
+      <?php dreamtails_breadcrumb(); ?>
+    </div>
     <?php woocommerce_template_single_rating(); ?>
     <?php if ( ! is_catalog_mode() ) : ?>
       <?php woocommerce_template_single_price(); ?>
