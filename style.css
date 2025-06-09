@@ -142,6 +142,13 @@ a:hover {
     opacity: 0.9;
 }
 
+/* Phone number displayed in the top header bar */
+.header-phone-number {
+    color: var(--color-primary-dark-teal);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
 
 /* Main Navigation Bar Styles */
 .main-navbar {
