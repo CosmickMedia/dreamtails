@@ -82,7 +82,7 @@ get_header();
 
 <?php // --- Testimonial Section --- ?>
     <section class="front-page-section py-5" id="happy-tails">
-        <div class="container">
+        <div class="container position-relative">
             <h2 class="section-title text-center mb-5">
                 <?php echo esc_html( get_theme_mod( 'front_testimonial_heading', __( 'happy tails start here', 'dreamtails' ) ) ); ?>
             </h2>
@@ -116,6 +116,7 @@ get_header();
                 wp_reset_postdata();
             endif;
             ?>
+            <img class="testimonial-decor" src="<?php echo esc_url( get_theme_mod( 'front_testimonial_image', get_template_directory_uri() . '/assets/images/reviews-image.png' ) ); ?>" alt="<?php esc_attr_e( 'Testimonial image', 'dreamtails' ); ?>" />
         </div>
     </section>
 
