@@ -14,7 +14,7 @@ get_header();
     <section class="front-page-hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 d-none d-md-block p-0 hero-image" style="background-image: url('<?php echo esc_url( get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/homepage_hero.png' ) ); ?>');"></div>
+                <div class="col-12 col-md-6 p-0 hero-image mb-4 mb-md-0" style="background-image: url('<?php echo esc_url( get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/homepage_hero.png' ) ); ?>');"></div>
                 <div class="col-md-6">
                     <div class="hero-content bg-light bg-opacity-75 p-4 p-md-5 rounded text-center">
                         <h1 class="display-4" style="color: var(--color-primary-dark-teal);">

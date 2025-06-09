@@ -153,14 +153,21 @@ a:hover {
 
 /* Phone number displayed in the top header bar */
 .header-phone-number {
-    color: var(--color-primary-dark-teal);
+    color: #000;
     font-weight: bold;
     white-space: nowrap;
+    font-size: 1.25rem;
+}
+.header-phone-number i {
+    font-size: 1.2rem;
 }
 
 .header-icon {
     color: var(--color-primary-dark-teal);
     text-decoration: none;
+    font-size: 1.2rem;
+}
+.header-icon i {
     font-size: 1.2rem;
 }
 .header-icon + .header-icon {
@@ -181,12 +188,15 @@ a:hover {
 }
 
 @media (max-width: 767.98px) {
+    .header-phone-number a {
+        display: none;
+    }
     .header-top-button {
-        align-items: center;
-        text-align: center;
+        align-items: flex-end;
+        text-align: right;
     }
     .header-contact {
-        justify-content: center;
+        justify-content: flex-end;
     }
 }
 
@@ -364,7 +374,7 @@ a:hover {
         overflow: visible;
     }
     .hero-image {
-        display: none;
+        display: block;
     }
 }
 
