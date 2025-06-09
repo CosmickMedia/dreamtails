@@ -381,4 +381,25 @@ function dreamtails_reviews_custom_column( $column, $post_id ) {
 }
 add_action( 'manage_reviews_posts_custom_column', 'dreamtails_reviews_custom_column', 10, 2 );
 
+// Disable WooCommerce page elements globally
+add_action( 'init', function() {
+
+    // 🔹 Disable WooCommerce Page Title
+    add_filter( 'woocommerce_show_page_title', '__return_false' );
+
+    // 🔹 Disable Product Result Count (e.g. "Showing 1–9 of 20 results")
+    remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+    // 🔹 Disable Product Sorting Dropdown (e.g. "Default sorting")
+    remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+    // 🔹 Disable Category and Shop Descriptions
+    remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+    remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description', 10 );
+
+});
+
+
 ?>
+
+
