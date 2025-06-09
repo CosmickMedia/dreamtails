@@ -78,4 +78,9 @@
                         )
                     );
                     ?>
-                </div></div></nav></header><div id="content" class="site-content"> <?php // Opening content div - closed in footer.php ?>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="content" class="site-content"> <?php // Opening content div - closed in footer.php ?>
