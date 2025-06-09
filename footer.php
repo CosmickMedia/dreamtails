@@ -6,13 +6,20 @@
  */
 ?>
 
-</div><footer id="colophon" class="site-footer text-white pt-5 pb-4" style="background-color: var(--color-footer-bg); color: var(--color-primary-dark-teal);"> <?php // Using custom color var ?>
+</div><footer id="colophon" class="site-footer pt-5 pb-4" style="background-color: var(--color-footer-bg); color: #000;"> <?php // Using custom color var ?>
     <div class="container">
         <div class="row gy-4"> <?php // Bootstrap row with gutter spacing ?>
 
             <?php // Footer Column 1: Navigation ?>
             <div class="col-lg-3 col-md-6 footer-navigation">
-                <?php if ( has_nav_menu( 'footer' ) ) :
+                <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) : ?>
+                    <div class="footer-logo mb-3">
+                        <?php the_custom_logo(); ?>
+                    </div>
+                <?php endif; ?>
+                <h5 class="widget-title">Navigation</h5>
+                <?php
+                if ( has_nav_menu( 'footer' ) ) {
                     wp_nav_menu(
                         array(
                             'theme_location' => 'footer',
@@ -21,17 +28,8 @@
                             'depth'          => 1,
                         )
                     );
-                else : ?>
-                    <h5 class="widget-title"><?php esc_html_e('Quick Links', 'dreamtails'); ?></h5>
-                    <ul class="list-unstyled footer-menu">
-                        <li><a href="#">View Dream Pets</a></li>
-                        <li><a href="#">About Dream Tails</a></li>
-                        <li><a href="#">Financing</a></li>
-                        <li><a href="#">Puppy Breeds</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Account</a></li>
-                    </ul>
-                <?php endif; ?>
+                }
+                ?>
                 <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
                     <?php dynamic_sidebar( 'footer-1' ); ?>
                 <?php endif; ?>
@@ -63,8 +61,8 @@
                     <p><?php esc_html_e( 'Part of the Petland family of stores.', 'dreamtails' ); ?></p>
                     <?php // Add social icons here if desired ?>
                     <div>
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
                         <?php // Add links ?>
                     </div>
                 <?php endif; ?>
@@ -72,7 +70,7 @@
 
         <div class="footer-bottom text-center">
             <p class="mb-1">&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All Rights Reserved.', 'dreamtails' ); ?></p>
-            <p class="mb-0 small"><?php esc_html_e( 'Developed by', 'dreamtails' ); ?> <a href="https://cosmickmedia.com/" target="_blank" rel="noopener" class="text-white">Cosmick Media</a></p>
+            <p class="mb-0 small"><?php esc_html_e( 'Developed by', 'dreamtails' ); ?> <a href="https://cosmickmedia.com/" target="_blank" rel="noopener">Cosmick Media</a></p>
         </div></div></footer></div><?php wp_footer(); ?>
 
 </body>
