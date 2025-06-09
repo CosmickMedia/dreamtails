@@ -297,6 +297,9 @@ a:hover {
     display: flex;
     align-items: center;
     overflow: visible; /* allow hero image to overlap */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .hero-image {
@@ -310,10 +313,6 @@ a:hover {
 
 @media (max-width: 767.98px) {
     .front-page-hero {
-        background-image: url('assets/images/homepage_hero.png');
-        background-size: contain; /* show entire image on mobile */
-        background-repeat: no-repeat;
-        background-position: center bottom;
         overflow: visible;
     }
     .hero-image {
@@ -457,6 +456,9 @@ a:hover {
 #happy-tails {
     position: relative;
     overflow: visible;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #happy-tails .testimonial-decor {

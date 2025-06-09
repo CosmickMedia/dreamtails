@@ -56,6 +56,25 @@ function dreamtails_customize_register( $wp_customize ) {
         'type'    => 'url',
     ) );
 
+    // Background options for Hero Section
+    $wp_customize->add_setting( 'front_hero_bg_image', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'front_hero_bg_image', array(
+        'label'   => __( 'Hero Background Image', 'dreamtails' ),
+        'section' => 'dreamtails_hero',
+    ) ) );
+
+    $wp_customize->add_setting( 'front_hero_bg_color', array(
+        'default'           => '#ffcfcd',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'front_hero_bg_color', array(
+        'label'   => __( 'Hero Background Color', 'dreamtails' ),
+        'section' => 'dreamtails_hero',
+    ) ) );
+
     /* Icon Section */
     $wp_customize->add_section( 'dreamtails_icons', array(
         'title' => __( 'Icon Section', 'dreamtails' ),
@@ -172,6 +191,25 @@ function dreamtails_customize_register( $wp_customize ) {
         'section' => 'dreamtails_testimonials',
     ) ) );
 
+    // Background options for Testimonials Section
+    $wp_customize->add_setting( 'front_testimonial_bg_image', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'front_testimonial_bg_image', array(
+        'label'   => __( 'Testimonials Background Image', 'dreamtails' ),
+        'section' => 'dreamtails_testimonials',
+    ) ) );
+
+    $wp_customize->add_setting( 'front_testimonial_bg_color', array(
+        'default'           => '#ffcfcd',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'front_testimonial_bg_color', array(
+        'label'   => __( 'Testimonials Background Color', 'dreamtails' ),
+        'section' => 'dreamtails_testimonials',
+    ) ) );
+
     /* Concierge Section */
     $wp_customize->add_section( 'dreamtails_concierge', array(
         'title' => __( 'Concierge Section', 'dreamtails' ),
@@ -234,12 +272,35 @@ add_action( 'customize_register', 'dreamtails_customize_register' );
  * Output dynamic CSS based on customizer settings.
  */
 function dreamtails_customizer_css() {
-    $hero = get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/homepage_hero.png');
+    $hero            = get_theme_mod( 'front_hero_image', get_template_directory_uri() . '/assets/images/homepage_hero.png' );
+    $hero_bg_image   = get_theme_mod( 'front_hero_bg_image', '' );
+    $hero_bg_color   = get_theme_mod( 'front_hero_bg_color', '#ffcfcd' );
+    $test_bg_image   = get_theme_mod( 'front_testimonial_bg_image', '' );
+    $test_bg_color   = get_theme_mod( 'front_testimonial_bg_color', '#ffcfcd' );
     ?>
     <style type="text/css">
-
         @media (min-width: 768px) {
             .hero-image { background-image: url('<?php echo esc_url( $hero ); ?>'); }
+        }
+
+        .front-page-hero {
+            background-color: <?php echo esc_attr( $hero_bg_color ); ?>;
+            <?php if ( $hero_bg_image ) : ?>
+            background-image: url('<?php echo esc_url( $hero_bg_image ); ?>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            <?php endif; ?>
+        }
+
+        #happy-tails {
+            background-color: <?php echo esc_attr( $test_bg_color ); ?>;
+            <?php if ( $test_bg_image ) : ?>
+            background-image: url('<?php echo esc_url( $test_bg_image ); ?>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            <?php endif; ?>
         }
     </style>
     <?php
