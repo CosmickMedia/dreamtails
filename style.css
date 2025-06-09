@@ -234,19 +234,19 @@ a:hover {
 /* --- Footer --- */
 .site-footer {
     background-color: var(--color-footer-bg);
-    color: var(--color-primary-dark-teal); /* Base text color for footer */
+    color: #000; /* Base text color for footer */
     font-size: 0.95rem; /* Slightly larger footer text */
     padding-top: 3rem; /* Use Bootstrap pt-5 class on element instead? */
     padding-bottom: 2rem; /* Use Bootstrap pb-4 class on element instead? */
 }
 
 .site-footer a {
-    color: var(--color-primary-dark-teal);
-    text-decoration: underline; /* Underline footer links */
+    color: #000;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 .site-footer a:hover {
-    color: #fff; /* White on hover for contrast */
+    color: #000;
     text-decoration: none;
 }
 
@@ -263,9 +263,16 @@ a:hover {
 .footer-menu {
     list-style: none;
     padding-left: 0; /* Remove default ul padding */
+    font-family: "Mollie Glaston", sans-serif;
 }
 .footer-menu li {
     margin-bottom: 0.5rem;
+}
+
+/* Footer logo size */
+.footer-logo img {
+    width: 200px;
+    height: auto;
 }
 
 /* Align icons in footer info sections */
@@ -286,11 +293,11 @@ a:hover {
     margin-bottom: 0.25rem;
 }
 .footer-bottom a { /* Ensure copyright link inherits footer link style */
-    color: var(--color-primary-dark-teal);
-    text-decoration: underline;
+    color: #000;
+    text-decoration: none;
 }
 .footer-bottom a:hover {
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 
