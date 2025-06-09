@@ -20,9 +20,12 @@ get_header();
                         <h1 class="display-4" style="color: var(--color-primary-dark-teal);">
                             <?php echo esc_html( get_theme_mod( 'front_hero_heading', __( 'where pets find their people', 'dreamtails' ) ) ); ?>
                         </h1>
-                        <a href="<?php echo esc_url( get_theme_mod( 'front_hero_button_url', '/book-appointment/' ) ); ?>" class="btn btn-lg mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
-                            <i class="fa-regular fa-calendar-check me-2"></i> <?php echo esc_html( get_theme_mod( 'front_hero_button_text', __( 'Book an Appointment', 'dreamtails' ) ) ); ?>
-                        </a>
+                        <?php $hero_url = get_theme_mod( 'front_hero_button_url', '' ); ?>
+                        <?php if ( $hero_url ) : ?>
+                            <a href="<?php echo esc_url( $hero_url ); ?>" class="btn btn-lg mt-3" style="background-color: var(--color-button); color: var(--color-button-text);">
+                                <i class="fa-regular fa-calendar-check me-2"></i> <?php echo esc_html( get_theme_mod( 'front_hero_button_text', __( 'Book an Appointment', 'dreamtails' ) ) ); ?>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

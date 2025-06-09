@@ -75,6 +75,32 @@ function dreamtails_customize_register( $wp_customize ) {
         'section' => 'dreamtails_hero',
     ) ) );
 
+    /* Homepage Settings */
+    $wp_customize->add_section( 'dreamtails_homepage_settings', array(
+        'title' => __( 'Homepage Settings', 'dreamtails' ),
+        'panel' => 'dreamtails_front_page',
+    ) );
+
+    $wp_customize->add_setting( 'homepage_phone_number', array(
+        'default'           => '941-203-1196',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'homepage_phone_number', array(
+        'label'   => __( 'Phone Number', 'dreamtails' ),
+        'section' => 'dreamtails_homepage_settings',
+        'type'    => 'text',
+    ) );
+
+    $wp_customize->add_setting( 'header_book_button_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'header_book_button_url', array(
+        'label'   => __( 'Header Book Appointment URL', 'dreamtails' ),
+        'section' => 'dreamtails_homepage_settings',
+        'type'    => 'url',
+    ) );
+
     /* Icon Section */
     $wp_customize->add_section( 'dreamtails_icons', array(
         'title' => __( 'Icon Section', 'dreamtails' ),

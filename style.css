@@ -158,6 +158,26 @@ a:hover {
     white-space: nowrap;
 }
 
+.header-icon {
+    color: var(--color-primary-dark-teal);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.header-icon + .header-icon {
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .header-top-button {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-contact {
+        margin-bottom: 0.5rem;
+        justify-content: center;
+    }
+}
+
 
 /* Main Navigation Bar Styles */
 .main-navbar {
