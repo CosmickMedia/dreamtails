@@ -34,16 +34,22 @@ get_header();
         <div class="container">
             <div class="row text-center gy-4">
                 <div class="col-md-4 icon-item">
-                    <img src="<?php echo esc_url( get_theme_mod( 'front_icon1_img', get_template_directory_uri() . '/assets/images/puppy_ico.png' ) ); ?>" alt="<?php esc_attr_e( 'Puppy icon', 'dreamtails' ); ?>" class="mb-3" />
-                    <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon1_text', __( 'puppies dreaming of you', 'dreamtails' ) ) ); ?></p>
+                    <a href="<?php echo esc_url( get_theme_mod( 'front_icon1_link', '#' ) ); ?>" class="text-decoration-none d-block">
+                        <img src="<?php echo esc_url( get_theme_mod( 'front_icon1_img', get_template_directory_uri() . '/assets/images/puppy_ico.png' ) ); ?>" alt="<?php esc_attr_e( 'Puppy icon', 'dreamtails' ); ?>" class="mb-3" />
+                        <p class="fw-bold mb-0"><?php echo esc_html( get_theme_mod( 'front_icon1_text', __( 'puppies dreaming of you', 'dreamtails' ) ) ); ?></p>
+                    </a>
                 </div>
                 <div class="col-md-4 icon-item">
-                    <img src="<?php echo esc_url( get_theme_mod( 'front_icon2_img', get_template_directory_uri() . '/assets/images/kittens_ico.png' ) ); ?>" alt="<?php esc_attr_e( 'Kitten icon', 'dreamtails' ); ?>" class="mb-3" />
-                    <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon2_text', __( 'kittens dreaming of you', 'dreamtails' ) ) ); ?></p>
+                    <a href="<?php echo esc_url( get_theme_mod( 'front_icon2_link', '#' ) ); ?>" class="text-decoration-none d-block">
+                        <img src="<?php echo esc_url( get_theme_mod( 'front_icon2_img', get_template_directory_uri() . '/assets/images/kittens_ico.png' ) ); ?>" alt="<?php esc_attr_e( 'Kitten icon', 'dreamtails' ); ?>" class="mb-3" />
+                        <p class="fw-bold mb-0"><?php echo esc_html( get_theme_mod( 'front_icon2_text', __( 'kittens dreaming of you', 'dreamtails' ) ) ); ?></p>
+                    </a>
                 </div>
                 <div class="col-md-4 icon-item">
-                    <img src="<?php echo esc_url( get_theme_mod( 'front_icon3_img', get_template_directory_uri() . '/assets/images/concierge.png' ) ); ?>" alt="<?php esc_attr_e( 'Concierge icon', 'dreamtails' ); ?>" class="mb-3" />
-                    <p class="fw-bold"><?php echo esc_html( get_theme_mod( 'front_icon3_text', __( 'concierge service', 'dreamtails' ) ) ); ?></p>
+                    <a href="<?php echo esc_url( get_theme_mod( 'front_icon3_link', '#' ) ); ?>" class="text-decoration-none d-block">
+                        <img src="<?php echo esc_url( get_theme_mod( 'front_icon3_img', get_template_directory_uri() . '/assets/images/concierge.png' ) ); ?>" alt="<?php esc_attr_e( 'Concierge icon', 'dreamtails' ); ?>" class="mb-3" />
+                        <p class="fw-bold mb-0"><?php echo esc_html( get_theme_mod( 'front_icon3_text', __( 'concierge service', 'dreamtails' ) ) ); ?></p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -62,9 +68,16 @@ get_header();
                         // Output featured pet images from Customizer settings.
                         for ( $i = 1; $i <= 3; $i++ ) {
                             $image = get_theme_mod( 'front_featured_pet_image' . $i, get_template_directory_uri() . '/assets/images/pet-placeholder-' . $i . '.jpg' );
+                            $link  = get_theme_mod( 'front_featured_pet_link' . $i, '' );
                             ?>
                             <div class="featured-pet-image mb-3 mb-md-0 text-center">
+                                <?php if ( $link ) : ?>
+                                    <a href="<?php echo esc_url( $link ); ?>">
+                                <?php endif; ?>
                                 <img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( sprintf( __( 'Featured Pet %d', 'dreamtails' ), $i ) ); ?>" class="img-fluid">
+                                <?php if ( $link ) : ?>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         <?php }
                         ?>
@@ -146,3 +159,4 @@ get_header();
 
     </main><?php
 get_footer();
+

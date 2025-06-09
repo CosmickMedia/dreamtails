@@ -90,6 +90,16 @@ function dreamtails_customize_register( $wp_customize ) {
         'section' => 'dreamtails_icons',
     ) ) );
 
+    $wp_customize->add_setting( 'front_icon1_link', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'front_icon1_link', array(
+        'label'   => __( 'First Icon Link', 'dreamtails' ),
+        'section' => 'dreamtails_icons',
+        'type'    => 'url',
+    ) );
+
     $wp_customize->add_setting( 'front_icon1_text', array(
         'default'           => __( 'puppies dreaming of you', 'dreamtails' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -109,6 +119,16 @@ function dreamtails_customize_register( $wp_customize ) {
         'section' => 'dreamtails_icons',
     ) ) );
 
+    $wp_customize->add_setting( 'front_icon2_link', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'front_icon2_link', array(
+        'label'   => __( 'Second Icon Link', 'dreamtails' ),
+        'section' => 'dreamtails_icons',
+        'type'    => 'url',
+    ) );
+
     $wp_customize->add_setting( 'front_icon2_text', array(
         'default'           => __( 'kittens dreaming of you', 'dreamtails' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -127,6 +147,16 @@ function dreamtails_customize_register( $wp_customize ) {
         'label'   => __( 'Third Icon Image', 'dreamtails' ),
         'section' => 'dreamtails_icons',
     ) ) );
+
+    $wp_customize->add_setting( 'front_icon3_link', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'front_icon3_link', array(
+        'label'   => __( 'Third Icon Link', 'dreamtails' ),
+        'section' => 'dreamtails_icons',
+        'type'    => 'url',
+    ) );
 
     $wp_customize->add_setting( 'front_icon3_text', array(
         'default'           => __( 'concierge service', 'dreamtails' ),
@@ -164,6 +194,16 @@ function dreamtails_customize_register( $wp_customize ) {
             'label'   => sprintf( __( 'Featured Pet Image %d', 'dreamtails' ), $i ),
             'section' => 'dreamtails_featured_pets',
         ) ) );
+
+        $wp_customize->add_setting( "front_featured_pet_link{$i}", array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( "front_featured_pet_link{$i}", array(
+            'label'   => sprintf( __( 'Featured Pet Link %d', 'dreamtails' ), $i ),
+            'section' => 'dreamtails_featured_pets',
+            'type'    => 'url',
+        ) );
     }
 
     /* Testimonials */
