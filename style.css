@@ -760,6 +760,14 @@ a:hover {
     padding: 1.5rem;
 }
 
+/* Shop toolbar spacing */
+.shop-toolbar {
+    gap: 0.5rem;
+}
+.shop-toolbar .woocommerce-ordering {
+    margin-right: 0.25rem;
+}
+
 /* Notices */
 .woocommerce-message,
 .woocommerce-info,
