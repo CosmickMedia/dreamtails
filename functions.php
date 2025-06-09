@@ -13,6 +13,25 @@ if ( ! defined( 'DREAMTAILS_VERSION' ) ) {
 }
 
 /**
+ * Determine if catalog mode is enabled.
+ * This allows toggling WooCommerce into a browse-only mode.
+ */
+function is_catalog_mode() {
+    return get_option( 'enable_catalog_mode' ) === 'yes';
+}
+
+/**
+ * Output breadcrumbs with YoastSEO support.
+ */
+function dreamtails_breadcrumb() {
+    if ( function_exists( 'yoast_breadcrumb' ) ) {
+        yoast_breadcrumb( '<nav class="breadcrumb-wrapper mb-3">', '</nav>' );
+    } else {
+        woocommerce_breadcrumb();
+    }
+}
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function dreamtails_setup() {
@@ -83,6 +102,9 @@ function dreamtails_setup() {
     add_theme_support( 'wc-product-gallery-zoom' );
     add_theme_support( 'wc-product-gallery-lightbox' );
     add_theme_support( 'wc-product-gallery-slider' );
+
+    // Yoast SEO breadcrumbs
+    add_theme_support( 'yoast-seo-breadcrumbs' );
 
 }
 add_action( 'after_setup_theme', 'dreamtails_setup' );
@@ -203,6 +225,25 @@ function dreamtails_woocommerce_wrapper_end() {
     // Close row and container
     echo '</div></div></main>';
 }
+
+/**
+ * Catalog Mode adjustments.
+ * Hide prices and add-to-cart buttons when enabled.
+ */
+add_filter( 'woocommerce_is_purchasable', function( $purchasable ) {
+    return is_catalog_mode() ? false : $purchasable;
+} );
+
+add_filter( 'woocommerce_get_price_html', function( $price ) {
+    return is_catalog_mode() ? '' : $price;
+} );
+
+add_action( 'wp', function() {
+    if ( is_catalog_mode() ) {
+        remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+    }
+} );
 
 /**
  * Add Bootstrap classes to navigation menus.
